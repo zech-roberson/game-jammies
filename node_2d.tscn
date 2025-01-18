@@ -1,0 +1,85 @@
+[gd_scene load_steps=11 format=3 uid="uid://ncyrelg6u7f4"]
+
+[ext_resource type="Texture2D" uid="uid://cnjg7m4naua3b" path="res://sprites/Untitled_design_43.png" id="1_5yjea"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8asox"]
+atlas = ExtResource("1_5yjea")
+region = Rect2(738, 0, 190, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ikmj"]
+atlas = ExtResource("1_5yjea")
+region = Rect2(738, 164, 190, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_od6lp"]
+atlas = ExtResource("1_5yjea")
+region = Rect2(738, 328, 190, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttlm8"]
+atlas = ExtResource("1_5yjea")
+region = Rect2(738, 492, 190, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwd04"]
+atlas = ExtResource("1_5yjea")
+region = Rect2(738, 656, 190, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3no4"]
+atlas = ExtResource("1_5yjea")
+region = Rect2(738, 820, 190, 152)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uxsdh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8asox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ikmj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_od6lp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttlm8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwd04")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3no4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7pitn"]
+size = Vector3(1000, 1, 1000)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c02yr"]
+size = Vector3(1000, 1, 1000)
+
+[node name="Ground Floor" type="Node3D"]
+
+[node name="Base Char" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.78078, 26.7416, -6.43068)
+
+[node name="Base Character" type="AnimatedSprite3D" parent="Base Char"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76852, 4.87242, -2.03907)
+pixel_size = 0.248
+sprite_frames = SubResource("SpriteFrames_uxsdh")
+frame_progress = 0.164359
+
+[node name="Camera1" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 36.1594, 97.4223)
+
+[node name="Ground" type="StaticBody3D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_7pitn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_c02yr")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0667265, 0.997771, 0, -0.997771, 0.0667265, 0, 311.195, 0)
