@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bvl40ro7snivl"
-path.s3tc="res://.godot/imported/BasicSprites.png-45778f29117081b4dce1f4a8e514396e.s3tc.ctex"
+path.s3tc="res://.godot/imported/BasicSprites.png-85f001ab8dbeea1cd0e999b79075237b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://BasicSprites.png"
-dest_files=["res://.godot/imported/BasicSprites.png-45778f29117081b4dce1f4a8e514396e.s3tc.ctex"]
+source_file="res://sprites/BasicSprites.png"
+dest_files=["res://.godot/imported/BasicSprites.png-85f001ab8dbeea1cd0e999b79075237b.s3tc.ctex"]
 
 [params]
 
