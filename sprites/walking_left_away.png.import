@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7vocv4ft8xyp"
-path="res://.godot/imported/Untitled_design_42.png-cc16a1f19f4b6f82f8bbf4edfba23cda.ctex"
+uid="uid://c2qtsuj2xlpnp"
+path="res://.godot/imported/walking_left_away.png-278d9aef0fa98a870473d6c2373361de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Untitled_design_42.png"
-dest_files=["res://.godot/imported/Untitled_design_42.png-cc16a1f19f4b6f82f8bbf4edfba23cda.ctex"]
+source_file="res://sprites/walking_left_away.png"
+dest_files=["res://.godot/imported/walking_left_away.png-278d9aef0fa98a870473d6c2373361de.ctex"]
 
 [params]
 

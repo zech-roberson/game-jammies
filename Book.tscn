@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnahxafbn141d"]
+
+[ext_resource type="Script" path="res://book.gd" id="1_8vlbn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_72jok"]
+albedo_color = Color(0.440114, 0.25922, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_e30bl"]
+material = SubResource("StandardMaterial3D_72jok")
+size = Vector3(5, 8, 1.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_64iig"]
+size = Vector3(5, 8, 1.5)
+
+[node name="Book" type="Area3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 8, 0)
+script = ExtResource("1_8vlbn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_e30bl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_64iig")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
