@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfbxcquqpa1hq"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_ymg7j"]
+[ext_resource type="SpriteFrames" uid="uid://cjpo5p7akqk68" path="res://main_character_placeholder.tres" id="2_e313d"]
+
+[node name="main_character_placeholder" type="Node2D"]
+script = ExtResource("1_ymg7j")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = ExtResource("2_e313d")
+animation = &"walk_right_away"
+frame_progress = 0.721337
