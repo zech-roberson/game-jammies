@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://ncyrelg6u7f4"]
+
+[ext_resource type="Texture2D" uid="uid://bvl40ro7snivl" path="res://BasicSprites.png" id="1_wgw6d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_651ph"]
+atlas = ExtResource("1_wgw6d")
+region = Rect2(35, 27, 153, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvomv"]
+atlas = ExtResource("1_wgw6d")
+region = Rect2(246, 27, 153, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axvjk"]
+atlas = ExtResource("1_wgw6d")
+region = Rect2(35, 235, 153, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lybca"]
+atlas = ExtResource("1_wgw6d")
+region = Rect2(246, 235, 153, 165)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uxsdh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_651ph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvomv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axvjk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lybca")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.51121, 1.39452, -0.857912)
+sprite_frames = SubResource("SpriteFrames_uxsdh")
+frame_progress = 0.853617
