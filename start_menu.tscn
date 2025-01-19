@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://pvlyqtmbtktg"]
+
+[ext_resource type="Script" path="res://start_menu.gd" id="1_4g2wv"]
+[ext_resource type="Texture2D" uid="uid://dnlm70bbbg4tj" path="res://sprites/Overdue.jpg" id="2_1lkqw"]
+
+[sub_resource type="Theme" id="Theme_3rpyu"]
+default_base_scale = 1.16
+
+[node name="Start Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4g2wv")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_right = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_3rpyu")
+
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer"]
+position = Vector2(35, 323)
+scale = Vector2(0.60026, 0.597685)
+texture = ExtResource("2_1lkqw")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Start" type="Button" parent="CenterContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Start
+"
+
+[node name="Options" type="Button" parent="CenterContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options
+"
+
+[node name="Credits" type="Button" parent="CenterContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Credits
+"
+
+[node name="Leave" type="Button" parent="CenterContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Leave
+"
+
+[connection signal="pressed" from="CenterContainer/MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CenterContainer/MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="CenterContainer/MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="CenterContainer/MarginContainer/VBoxContainer/Leave" to="." method="_on_leave_pressed"]
