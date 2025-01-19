@@ -50,9 +50,9 @@ func _mult_speed(playerIsSprinting):
 		return SPEED
 
 
-#func _on_trigger_zone_body_entered(body: Node3D) -> void:
-	#get_tree().change_scene_to_file("res://text_level.tscn")
-#
-#
-#func _on_trigger_zone_2_body_entered(body: Node3D) -> void:
-	#get_tree().change_scene_to_file("res://text_level.tscn")
+func _on_trigger_zone_body_exited(body: Node3D) -> void:
+	print("exited")
+
+
+func _on_trigger_zone_2_body_exited(body: Node3D) -> void:
+	print("exited 2")

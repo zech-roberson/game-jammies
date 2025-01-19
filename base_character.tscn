@@ -4,10 +4,10 @@
 [ext_resource type="SpriteFrames" uid="uid://cjpo5p7akqk68" path="res://main_character_placeholder.tres" id="2_k67ng"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b74d8"]
-size = Vector3(2.56867, 6.69604, 0.1)
+size = Vector3(12.6532, 36.2999, 0.1)
 
 [node name="Base Character" type="CharacterBody3D"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.331116, 0, 0)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.331116, 0, 0)
 script = ExtResource("1_og8ke")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
@@ -18,7 +18,7 @@ animation = &"walk_left"
 frame_progress = 0.297809
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.388647, -0.365476, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.98541, -2.3681, 0)
 shape = SubResource("BoxShape3D_b74d8")
 
 [node name="Camera_Controller" type="Node3D" parent="."]

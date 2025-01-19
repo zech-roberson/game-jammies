@@ -11,4 +11,4 @@ script = ExtResource("1_ymg7j")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = ExtResource("2_e313d")
-animation = &"walk_left"
+animation = &"walk_right_away"
