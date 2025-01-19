@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ncyrelg6u7f4"]
+[gd_scene load_steps=7 format=3 uid="uid://ncyrelg6u7f4"]
 
 [ext_resource type="Script" path="res://node_2d.gd" id="1_soynm"]
-[ext_resource type="PackedScene" uid="uid://bq30a2ioowtop" path="res://base_character.tscn" id="2_ko4t6"]
+[ext_resource type="PackedScene" uid="uid://q16qr4pe85aj" path="res://base_character.tscn" id="2_ko4t6"]
 [ext_resource type="MeshLibrary" uid="uid://bywbr4co4rh8e" path="res://resources/world-blocks-v1.tres" id="3_irmwd"]
 [ext_resource type="Environment" uid="uid://bv6h8b3hsfxvg" path="res://resources/lvl_1_environment.tres" id="4_1bmnd"]
 [ext_resource type="PackedScene" uid="uid://c5sudvh186aac" path="res://bookshelf.tscn" id="5_gmlaq"]
+[ext_resource type="PackedScene" uid="uid://dex0r1hskorac" path="res://blender_assets/bookshelf_better.blend" id="6_0v2hf"]
 
 [node name="Ground Floor" type="Node3D"]
 script = ExtResource("1_soynm")
@@ -31,3 +32,6 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.331116, 2, 0)
 
 [node name="Floor_with_bookshelves" parent="." instance=ExtResource("5_gmlaq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0677483, 0)
+
+[node name="bookshelf_better" parent="." instance=ExtResource("6_0v2hf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.50973, 1.31795, 0)
