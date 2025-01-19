@@ -3,6 +3,7 @@ extends CharacterBody3D
 @onready var player = $AnimatedSprite3D
 
 const SPEED = 5
+const MODULO_OP:float = 2
 
 var num_of_books = 0;
 
@@ -32,11 +33,10 @@ func _physics_process(delta: float) -> void:
 			player.play("walk_left")
 		elif velocity.z < 0 and velocity.x == 0:
 			player.play("walk_left_away")
-		else:
-			player.stop()
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+		player.stop()
 
 	move_and_slide()
 	
@@ -48,3 +48,11 @@ func _mult_speed(playerIsSprinting):
 		return SPEED * 2
 	else:
 		return SPEED
+
+
+#func _on_trigger_zone_body_entered(body: Node3D) -> void:
+	#get_tree().change_scene_to_file("res://text_level.tscn")
+#
+#
+#func _on_trigger_zone_2_body_entered(body: Node3D) -> void:
+	#get_tree().change_scene_to_file("res://text_level.tscn")

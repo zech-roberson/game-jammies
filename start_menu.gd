@@ -3,7 +3,7 @@ extends Control
 
 
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://node_2d.tscn")
+	get_tree().change_scene_to_file("res://text_level.tscn")
 
 
 func _on_options_pressed() -> void:

@@ -26,7 +26,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.331116, 0, 0)
 top_level = true
 
 [node name="Camera_Target" type="Node3D" parent="Camera_Controller"]
-transform = Transform3D(1, 0, 0, 0, 0.952799, 0.303601, 0, -0.303601, 0.952799, 0, 1.4353, 3.33508)
+transform = Transform3D(1, 0, 0, 0, 0.952799, 0.303601, 0, -0.303601, 0.952799, 0, 1.37335, 3.35482)
 
 [node name="Camera3D" type="Camera3D" parent="Camera_Controller/Camera_Target"]
 transform = Transform3D(1, 0, 0, 0, 0.995076, -0.0991113, 0, 0.0991113, 0.995076, 0, 0, 0)
