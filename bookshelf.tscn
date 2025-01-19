@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5sudvh186aac"]
+
+[ext_resource type="Texture2D" uid="uid://evmg1v0c7saa" path="res://resources/textures/bookshelf_forward.png" id="1_mnja5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jxyah"]
+size = Vector3(4, 2.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7e0yt"]
+albedo_texture = ExtResource("1_mnja5")
+
+[sub_resource type="BoxMesh" id="BoxMesh_drdkg"]
+size = Vector3(4, 2.5, 0.5)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_jxyah")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+material_override = SubResource("StandardMaterial3D_7e0yt")
+mesh = SubResource("BoxMesh_drdkg")
