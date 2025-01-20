@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cw8ibgc6kuetf"]
+
+[ext_resource type="SpriteFrames" uid="uid://xpwe1xuv2qsx" path="res://brain_sprite.tres" id="1_24buc"]
+
+[node name="Brain Sprite" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_24buc")
+frame_progress = 0.512949

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5nn50q3rvupo"]
+
+[ext_resource type="SpriteFrames" uid="uid://clhfhyc5ns5up" path="res://librarian.tres" id="1_8vacv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rrmf2"]
+size = Vector3(1.13992, 2.62097, 0.13089)
+
+[node name="Librarian Character" type="CharacterBody3D"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+sprite_frames = ExtResource("1_8vacv")
+animation = &"good_walking_right"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.232925, -0.0101929, -0.000900269)
+shape = SubResource("BoxShape3D_rrmf2")

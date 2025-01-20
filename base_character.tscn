@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bq30a2ioowtop"]
+[gd_scene load_steps=7 format=3 uid="uid://bq30a2ioowtop"]
 
 [ext_resource type="Script" path="res://base_character_movement.gd" id="1_og8ke"]
 [ext_resource type="SpriteFrames" uid="uid://cjpo5p7akqk68" path="res://main_character_placeholder.tres" id="2_k67ng"]
+[ext_resource type="AudioStream" uid="uid://hvaysie50vnu" path="res://assets/sounds/synth-pulse-shortened.mp3" id="3_me75g"]
+[ext_resource type="AudioStream" uid="uid://bcgml122ppt1s" path="res://assets/sounds/power-up-pulse.mp3" id="4_1eygl"]
+[ext_resource type="AudioStream" uid="uid://sgft8fq1l5im" path="res://assets/sounds/player-hurt.mp3" id="5_p2udd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b74d8"]
 size = Vector3(12.6532, 36.2999, 0.1)
@@ -10,12 +13,36 @@ size = Vector3(12.6532, 36.2999, 0.1)
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.331116, 0, 0)
 script = ExtResource("1_og8ke")
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+[node name="Player-Walk" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
 texture_filter = 0
 sprite_frames = ExtResource("2_k67ng")
 animation = &"walk_left"
 frame_progress = 0.297809
+
+[node name="Player-Condition-Block" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
+visible = false
+sprite_frames = ExtResource("2_k67ng")
+animation = &"walk_left"
+
+[node name="Player-Condition-Power-Up" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
+visible = false
+sprite_frames = ExtResource("2_k67ng")
+animation = &"walk_left"
+
+[node name="Player-Condition-Hurt" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
+visible = false
+sprite_frames = ExtResource("2_k67ng")
+animation = &"walk_left"
+
+[node name="Player-Action-Dodge" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
+visible = false
+sprite_frames = ExtResource("2_k67ng")
+animation = &"walk_left"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.98541, -2.3681, 0)
@@ -31,3 +58,12 @@ transform = Transform3D(1, 0, 0, 0, 0.952799, 0.303601, 0, -0.303601, 0.952799, 
 [node name="Camera3D" type="Camera3D" parent="Camera_Controller/Camera_Target"]
 transform = Transform3D(1, 0, 0, 0, 0.995076, -0.0991113, 0, 0.0991113, 0.995076, 0, 0, 0)
 current = true
+
+[node name="BlockSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_me75g")
+
+[node name="PowerUpSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_1eygl")
+
+[node name="HurtSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_p2udd")

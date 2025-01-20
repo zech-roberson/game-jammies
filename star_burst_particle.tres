@@ -1,0 +1,46 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://bbc7e5yop58di"]
+
+[ext_resource type="Texture2D" uid="uid://c5rcbcmrh4n7m" path="res://sprites/Starbust_particle.png" id="1_2yhh8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clwll"]
+atlas = ExtResource("1_2yhh8")
+region = Rect2(0, 0, 186, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gs22c"]
+atlas = ExtResource("1_2yhh8")
+region = Rect2(0, 186, 186, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pea85"]
+atlas = ExtResource("1_2yhh8")
+region = Rect2(0, 372, 186, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmyxv"]
+atlas = ExtResource("1_2yhh8")
+region = Rect2(0, 558, 186, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qchr7"]
+atlas = ExtResource("1_2yhh8")
+region = Rect2(0, 744, 186, 186)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clwll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gs22c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pea85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmyxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qchr7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

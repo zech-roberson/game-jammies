@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0wc2k6v1drwa"]
+
+[ext_resource type="SpriteFrames" uid="uid://bbc7e5yop58di" path="res://star_burst_particle.tres" id="1_5h1il"]
+
+[node name="Star Burst Particle" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_5h1il")
+frame_progress = 0.769904

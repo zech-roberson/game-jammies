@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://caklubsnewtmf"]
+
+[ext_resource type="Script" path="res://game_manager.gd" id="1_am5w3"]
+[ext_resource type="PackedScene" uid="uid://ncyrelg6u7f4" path="res://text_level.tscn" id="1_eq2hw"]
+[ext_resource type="PackedScene" uid="uid://bpcnwbg21pyyj" path="res://pause_menu.tscn" id="2_0qs3l"]
+
+[node name="GameManager" type="Node"]
+process_mode = 3
+script = ExtResource("1_am5w3")
+
+[node name="Ground Floor" parent="." instance=ExtResource("1_eq2hw")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="pause_menu" parent="CanvasLayer" node_paths=PackedStringArray("game_manager") instance=ExtResource("2_0qs3l")]
+game_manager = NodePath("../..")

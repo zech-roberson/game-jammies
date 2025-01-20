@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://k6per8p0i0mv"]
+
+[ext_resource type="Texture2D" uid="uid://d3nrxyxsjkeje" path="res://sprites/Dewy.png" id="1_yp0on"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57l2k"]
+atlas = ExtResource("1_yp0on")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jheam"]
+atlas = ExtResource("1_yp0on")
+region = Rect2(0, 192, 192, 192)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57l2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jheam")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]

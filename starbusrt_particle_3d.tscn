@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0e4osqm8x238"]
+
+[ext_resource type="SpriteFrames" uid="uid://bbc7e5yop58di" path="res://star_burst_particle.tres" id="1_0fj3k"]
+[ext_resource type="Script" path="res://starbusrt_particle_3d.gd" id="1_tqkvp"]
+
+[node name="Starbusrt Particle 3D" type="Node3D"]
+script = ExtResource("1_tqkvp")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+sprite_frames = ExtResource("1_0fj3k")
+frame_progress = 0.97533
