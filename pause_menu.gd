@@ -1,15 +1,9 @@
 extends Control
 
-func _on_pause_button_pressed():
-	get_tree().paused = true
-	show()
-	
-func _on_close_button_pressed():
-	hide()
-	get_tree().paused = false
+@export var game_manager : GameManager
 
 func _on_back_button_pressed() -> void:
-	hide()
+	game_manager.game_paused = false
 
 func _on_notes_screen_pressed() -> void:
 	pass # Replace with function body.
@@ -18,7 +12,14 @@ func _on_quit_game_pressed() -> void:
 	get_tree().quit()
 
 func _ready() -> void:
-	pass
+	hide()
+	game_manager.connect("toggle_game_pause", _on_game_manager_toggle_game_pause)
 
 func _process(delta: float) -> void:
 	pass
+	
+func _on_game_manager_toggle_game_pause(is_paused: bool):
+	if is_paused:
+		show()
+	else: 
+		hide()

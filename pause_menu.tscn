@@ -4,17 +4,20 @@
 [ext_resource type="Script" path="res://pause_menu.gd" id="1_ovo5s"]
 
 [node name="pause_menu" type="Control"]
-process_mode = 3
+process_mode = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -773.0
+offset_bottom = -428.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ovo5s")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
+offset_top = -1.0
 offset_right = 1152.0
 offset_bottom = 650.0
 color = Color(0, 0, 0, 0.341176)
@@ -26,10 +29,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -21.0
-offset_top = -15.5
-offset_right = 21.0
-offset_bottom = 15.5
+offset_left = 305.5
+offset_top = 120.0
+offset_right = 1457.5
+offset_bottom = 767.0
 grow_horizontal = 2
 grow_vertical = 2
 

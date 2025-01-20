@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgyebq5f8sqjl"]
+
+[ext_resource type="SpriteFrames" uid="uid://k6per8p0i0mv" path="res://dewy_sprite.tres" id="1_mos6n"]
+
+[node name="Dewy Sprite" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_mos6n")
+frame_progress = 0.782651

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl46hsooe38v6"]
+
+[ext_resource type="SpriteFrames" uid="uid://xpwe1xuv2qsx" path="res://brain_sprite.tres" id="1_bqwuo"]
+[ext_resource type="Script" path="res://brain_sprite_3d.gd" id="1_ffcht"]
+
+[node name="Brain Sprite 3D" type="Node3D"]
+script = ExtResource("1_ffcht")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+billboard = 2
+sprite_frames = ExtResource("1_bqwuo")
