@@ -3,8 +3,11 @@ extends CharacterBody3D
 @onready var player_walk = $"Player-Walk"
 @onready var player_condition_block = $"Player-Condition-Block"
 @onready var player_condition_power_up = $"Player-Condition-Power-Up"
+@onready var player_condition_hurt = $"Player-Condition-Hurt"
+@onready var player_action_dodge = $"Player-Action-Dodge"
 @onready var blockSound = $BlockSound
 @onready var powerUpSound = $PowerUpSound
+@onready var hurtSound = $HurtSound
 
 const SPEED = 5
 const MODULO_OP:float = 2
@@ -20,7 +23,7 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var is_sprinting := Input.is_key_pressed(KEY_SHIFT)
 	
-	var noSoundsArePlaying = !blockSound.playing && !powerUpSound.playing
+	var noSoundsArePlaying = !blockSound.playing && !powerUpSound.playing && !hurtSound.playing	
 	
 	var is_blocking := Input.is_key_pressed(KEY_B)
 	
@@ -44,10 +47,13 @@ func _physics_process(delta: float) -> void:
 	
 	var is_hurting := Input.is_key_pressed(KEY_H)
 
-	#if is_hurting:
-		#player_condition_block.play("player_hurt")
-		#player_condition_block.hide()
-		
+	if is_hurting:
+		player_walk.hide()
+		playHurtAnimAndSound(noSoundsArePlaying)
+	else:
+		if noSoundsArePlaying:
+			player_condition_hurt.hide()
+			player_walk.show()
 	
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
@@ -84,13 +90,19 @@ func _mult_speed(playerIsSprinting):
 func playBlockAnimAndSound(areSoundsPlaying:bool) -> void:
 	if areSoundsPlaying:
 		player_condition_power_up.hide()
+		player_condition_hurt.hide()
 		player_condition_block.show()
 		player_condition_block.play("player_block")
 		blockSound.play()
 		
 	
-func playHurtAnimAndSound(areSoundsPLaying:bool) -> void:
-	pass
+func playHurtAnimAndSound(areSoundsPlaying:bool) -> void:
+	if areSoundsPlaying:
+		player_condition_power_up.hide()
+		player_condition_block.hide()
+		player_condition_hurt.show()
+		player_condition_hurt.play("player_hurt")
+		hurtSound.play()
 	
 func playPowerUpAndSound(areSoundsPlaying:bool) -> void:
 	if areSoundsPlaying:

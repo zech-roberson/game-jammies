@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ncyrelg6u7f4"]
+[gd_scene load_steps=13 format=3 uid="uid://ncyrelg6u7f4"]
 
 [ext_resource type="Script" path="res://test_level.gd" id="1_mq4lk"]
 [ext_resource type="Environment" uid="uid://bv6h8b3hsfxvg" path="res://resources/lvl_1_environment.tres" id="2_8kxce"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://c4ua4va362l2g" path="res://assets/sounds/dewy_demo.mp3" id="8_tslcy"]
 [ext_resource type="PackedScene" uid="uid://dl46hsooe38v6" path="res://brain_sprite_3d.tscn" id="9_pcjn0"]
 [ext_resource type="PackedScene" uid="uid://c0e4osqm8x238" path="res://starbusrt_particle_3d.tscn" id="10_3yeii"]
+[ext_resource type="PackedScene" uid="uid://b5nn50q3rvupo" path="res://librarian_character.tscn" id="11_xp5vv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n6mk1"]
 size = Vector3(150, 24, 1)
@@ -32,6 +33,12 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.215353, 4.41054, 62.
 
 [node name="TriggerZone" parent="." instance=ExtResource("6_f413h")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.5422, 5.88203, 58.893)
+
+[node name="TriggerZone4" parent="." instance=ExtResource("6_f413h")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 26.0723, 5.88203, 58.893)
+
+[node name="TriggerZone5" parent="." instance=ExtResource("6_f413h")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 38.5927, 5.88203, 58.893)
 
 [node name="TriggerZone2" parent="." instance=ExtResource("6_f413h")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12.273, 4.83814, 59.0978)
@@ -69,6 +76,9 @@ visible = false
 [node name="Starbusrt_Particle 3d" parent="." instance=ExtResource("10_3yeii")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0498, 3.62925, 53.6572)
 visible = false
+
+[node name="Librarian Character" parent="." instance=ExtResource("11_xp5vv")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 24.1163, 4.18002, 53.5814)
 
 [connection signal="body_exited" from="TriggerZone" to="." method="_on_trigger_zone_body_exited"]
 [connection signal="body_exited" from="TriggerZone" to="Base Character" method="_on_trigger_zone_body_exited"]
