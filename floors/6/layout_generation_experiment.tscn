@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://fml56p4it1hp"]
+
+[ext_resource type="Script" path="res://floors/6/layout_generation_experiment.gd" id="1_45nav"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_45nav")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.502108, 0)
+fov = 60.0
+far = 100.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Camera3D"]
+visible = false
+spot_range = 11.0
+spot_attenuation = 0.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+light_angular_distance = 0.5
+light_bake_mode = 1
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 5, 0)
+light_angular_distance = 0.5
+light_bake_mode = 1
+
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, -8.74227e-08, 0.00115188, 0.999999, 1.007e-10, 0.999999, -0.00115188, 0, 5, 0)
+light_angular_distance = 0.5
+light_bake_mode = 1

@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://camhj3t18k3d3"
+path.s3tc="res://.godot/imported/bookshelf_better_bookshelf_front.png-955ea40f2354d9f92464280761a5379b.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "30100053b1a53e0048411f9c6eaf7e0f"
+}
+
+[deps]
+
+source_file="res://blender_assets/bookshelf_better_bookshelf_front.png"
+dest_files=["res://.godot/imported/bookshelf_better_bookshelf_front.png-955ea40f2354d9f92464280761a5379b.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
