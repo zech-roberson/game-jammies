@@ -1,0 +1,30 @@
+~ alice_second_encounter
+Alice: Oh there you are sweetie, I hope you’ve been doing okay on your own shelving books on all these floors.
+- The library is more crowded than I thought.
+	Alice: Oh don’t pay any mind to the patrons, dear. Just keep shelving those books like a good little assistant.
+- It’s been difficult with all these monsters around...
+	Alice: That is no way to talk about our patrons, dear. I’m disappointed, I thought you were better than that.
+Alice: Could you tell me your name again, Dear? I need to fill out some paperwork for you to sign later.
+- It's Jessie. Your name is Alice, correct?
+Alice: Now who told you that?
+- A feisty raccoon
+	Alice: A RACCOON? IN THIS BUILDIING? I assume you threw him out promptly?
+	- Of course!
+		Alice: Good work! I know that's not in the job description per se, but I appreciate the extra help.
+	- Well, the thing is...
+		Alice: OOOOOH THAT GOOD FOR NOTHING PEST!
+		Alice: I apologize, I lost my temper. I have to call animal control now for the 5th time this week.
+- One of the Patrons
+	Alice: Was it Gerald? He likes to talk to the new people, but he can be pushy. Don't let him push you around, dear. \nI wish Samuel would have taken that advice.
+	- Samuel? 
+		Alice: Hmm? Oh my grandson came in here one day, and came back with a cut on his arm, I assume it was Gerald. \nLater his parents called me and demanded to know how their son got so hurt. \nI told them about it and my own son told me I was delusional.
+		- Sorry I brought it up
+			Alice: *sniff* Oh, it's okay, dearie.
+		- *Say Nothing*
+	- *Say Nothing*
+Alice: Continue on my darling. I’m expecting a phone call shortly, so I must leave you to it.
+- Okay.
+	=> END
+- You look a little ill, are you feeling okay?
+	Alice: Oh don’t worry about me, I’ll manage like I always do.
+=> END

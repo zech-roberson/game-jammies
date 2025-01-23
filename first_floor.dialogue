@@ -1,0 +1,27 @@
+~ dewy_intro
+Dewy: Psst. Over ‘ere.
+Dewy: That book you holdin’ right now? Looks interesting, right? Why dontcha crack it open and give it a quick read, hmm?
+Game: Press R to read a book you are holding.
+Dewy: Heh! Feels good, don’t it? Doesn’t your mind feel a little stronger? Body a little more spry? Have a lil’ more pep to your step?
+- Yeah, I do feel pretty good.
+	Dewy: I knew it! 
+- What. Was. That.
+	Dewy: That's just the power of knowledge, baby! 
+	- Does knowledge always make you feel queasy?
+		Dewy: Ha, that's just a little side effect. Do me a favor, if you're gonna upchuck, don't do it on me. \nI'm still smellin' the last guy... 
+Dewy: Name’s Dewy, by th’ way! I’d suggest popping one of those suckers open every now and then. You could learn a lot from them…
+- Dewy, I'm Jessie.
+Dewy: Nice to meet ya, kid. Hey if you could do you and i's a favor and not mention me to Alice?
+- Alice?
+Dewy: The Librarian!
+- Ooooooh! Yeah of course, not a word.
+	Dewy: That's the spirit! I'll be checkin in on youse from time to time. Gotta split! => END
+- Uhhh, I don't know, are you really allowed in here? 
+	Dewy: Who cares if I'm allowed, I practically run this joint since Alice can't catch me. I'm in my element in here! \nIt's basically my castle!
+	- Where's your crown, then? 
+		Dewy: King ain't always gotta wear 'is crown to let his subjects know who's in charge.
+		- Well how do newbies know?
+			Dewy: First rule, don't ask me too many questions. It gives me a headache. \nSpeakin' of which, I'm gonna do you the favor and get outta your hair before that happens. See ya 'round! => END
+	- Alright, I won't rat you out.
+		Dewy: I'm a raccoon, not a rat, but you got the spirit! Gotta split, kid. See ya around.
+=> END
