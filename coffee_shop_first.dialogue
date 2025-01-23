@@ -1,0 +1,13 @@
+~ coffee_shop_first
+Barista: Welcome back Jessie! Looks like you need a pick-me-up before work. The usual?
+- The usual
+	Barista: Of course, let me get you that medium soy dirty chai latte with extra cinnamon!
+- Let’s try something new
+	Barista: Ah, being adventurous I see! I’ll let you try one of our new seasonal flavors, \nour white chocolate pumpkin spice mocha has been getting lots of compliments recently. \nI think you’ll like that!
+Barista: So, how’s the new cashier job going for you?
+- They let me go
+Barista: Wha-? After just 2 days on the job?
+Barista: Dang, let me add an extra espresso shot for you, on the house. You deserve it.
+- Thanks, I... 
+Barista: Don't mention it. We've only got one job on the board if you're interested. The local library is looking for some extra helping hands.
+=> END

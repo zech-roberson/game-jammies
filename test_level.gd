@@ -12,10 +12,12 @@ func _unhandled_input(event: InputEvent) -> void:
 @onready var star = $"Starbusrt_Particle 3d"
 @onready var hud = $HUD
 @onready var dewy_demo = $StaticBody3D3/AudioStreamPlayer2D
+@onready var librarian = $"Librarian Character/AnimatedSprite3D"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.Books = 0
+	librarian.play("good_walking_left")
 	get_tree().paused = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

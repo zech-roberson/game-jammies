@@ -12,11 +12,20 @@ extends CharacterBody3D
 const SPEED = 5
 const MODULO_OP:float = 2
 var num_of_books = 0;
+var talking_npc_in_range = false;
+var enemy_in_range = false;
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		
+	if talking_npc_in_range == true:
+		if Input.is_action_just_pressed("ui_interact"):
+			if !Global.has_met_librarian:
+				DialogueManager.show_example_dialogue_balloon(load("res://tutorial.dialogue"))
+			elif !Global.has_met_dewy:
+				DialogueManager.show_example_dialogue_balloon(load("res://first_floor.dialogue"))
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -110,3 +119,19 @@ func playPowerUpAndSound(areSoundsPlaying:bool) -> void:
 		player_condition_power_up.show()
 		player_condition_power_up.play("power_up")
 		powerUpSound.play()
+
+
+func _on_trigger_zone_body_entered(body: Node3D) -> void:
+	if body.has_method("isInteractable"):
+		talking_npc_in_range = true
+		
+	if body.has_method("isEnemy"):
+		enemy_in_range = true
+
+
+func _on_trigger_zone_body_exited(body: Node3D) -> void:
+	if body.has_method("isInteractable"):
+		talking_npc_in_range = false
+		
+	if body.has_method("isEnemy"):
+		enemy_in_range = false

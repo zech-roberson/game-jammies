@@ -1,0 +1,15 @@
+~ tutorial
+Librarian: Hello! Come on in, what can I help you with?
+- Hi, I’m here for the job posting.
+Librarian: Oh, I’m so glad someone finally picked that up, I appreciate you being willing to help out at our little library. 
+- Of course, I’m happy to help! 
+	Librarian: Good, I’m glad you have such a sensible attitude! 
+- I needed a job anyways.
+	Librarian: I did read in the paper about how the economy has been so difficult for young ones such as yourself… \nWas a shame when my last assistant left, \nand running a library all by myself is tiring work for an elderly lady such as myself.
+	- Why did the last assistant leave?
+		Librarian: Oh, this generation doesn’t know anything about work ethic. \nAt least you seem like a sensible little thing who could actually get things done around here. \nSpeaking of which, let’s get some books shelved.
+Librarian: Book carts are located right here by the administrative desk on each floor. \nI’ve already taken the returned books and organized them on each floor of the library, \nso you don’t have to worry about bringing these books to other floors. \nGo ahead sweetie, pick up a book.
+Game: Press E to interact with the book cart. The book’s outline should indicate where the book goes on this floor, put colors with their matching pair.
+Librarian: You’re a natural! Once you’re done with this floor, you may take the elevator to another floor and continue shelving the books on that floor. \nDon’t worry about visiting the basement today, the books that go down there won't be read again.
+Librarian: Oh! Look at the time, I’m about to be late for a meeting! Please continue working, and I will be back later to check on your progress.
+=> END
