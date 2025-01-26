@@ -16,4 +16,6 @@ script = ExtResource("1_am5w3")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="pause_menu" parent="CanvasLayer" node_paths=PackedStringArray("game_manager") instance=ExtResource("2_0qs3l")]
+offset_right = -3.0
+offset_bottom = 2.0
 game_manager = NodePath("../..")

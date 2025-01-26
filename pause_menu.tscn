@@ -18,8 +18,8 @@ script = ExtResource("1_ovo5s")
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
 offset_top = -1.0
-offset_right = 1152.0
-offset_bottom = 650.0
+offset_right = 1919.0
+offset_bottom = 1079.0
 color = Color(0, 0, 0, 0.341176)
 
 [node name="GridContainer" type="GridContainer" parent="."]
@@ -29,10 +29,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 305.5
-offset_top = 120.0
-offset_right = 1457.5
-offset_bottom = 767.0
+offset_left = -56.5
+offset_top = -59.0
+offset_right = 1095.5
+offset_bottom = 588.0
 grow_horizontal = 2
 grow_vertical = 2
 
