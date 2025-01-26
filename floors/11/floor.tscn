@@ -63,9 +63,6 @@ func _ready() -> void:
 					item = shelf_scene.instantiate()
 					item_placement_y = 1.25
 					item_placement_rot = 90
-				\"t\":
-					item = table_scene.instantiate()
-					item_placement_y = 1
 			if (item):
 				add_child(item)
 				# prolly should just divide height of item and assign
@@ -90,6 +87,7 @@ func _process(delta: float) -> void:
 script = SubResource("GDScript_y80um")
 
 [node name="Camera3D" type="Camera3D" parent="."]
+visible = false
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
