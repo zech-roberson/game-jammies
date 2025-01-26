@@ -1,6 +1,7 @@
 extends Node3D
 
 @onready var dialoguePt1 = $"Dialogue/Tutorial Dialogue"
+@onready var interactScreen = $InteractionLayer/InteractionScreen
 
 # put scene's you want added to your floor here
 # shelf is 4x2.5x.5
@@ -73,4 +74,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if Global.show_interaction_screen == true:
+		interactScreen.show()
+	else:
+		interactScreen.hide()

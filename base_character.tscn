@@ -46,7 +46,14 @@ animation = &"walk_left"
 transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
 visible = false
 sprite_frames = ExtResource("2_k67ng")
-animation = &"walk_left"
+animation = &"player_attack"
+frame = 17
+frame_progress = 0.808368
+
+[node name="Player-Action-Attack" type="AnimatedSprite3D" parent="."]
+visible = false
+sprite_frames = ExtResource("2_k67ng")
+animation = &"player_block"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.98541, -2.3681, 0)

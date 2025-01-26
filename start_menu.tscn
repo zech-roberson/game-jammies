@@ -28,8 +28,8 @@ grow_vertical = 2
 theme = SubResource("Theme_3rpyu")
 
 [node name="Sprite2D" type="Sprite2D" parent="CenterContainer"]
-position = Vector2(35, 323)
-scale = Vector2(0.60026, 0.597685)
+position = Vector2(34.5, 540)
+scale = Vector2(0.998437, 1)
 texture = ExtResource("2_1lkqw")
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]

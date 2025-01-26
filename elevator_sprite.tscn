@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://csjmy4xymv8va"]
+
+[ext_resource type="Texture2D" uid="uid://bemt7r6nfydcj" path="res://sprites/Fancy Floor.png" id="1_qvqx8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ma3kf"]
+
+[node name="Elevator_Sprite" type="Node3D"]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ma3kf")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = ExtResource("1_qvqx8")

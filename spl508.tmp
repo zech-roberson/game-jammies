@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdfj2xqm0qb2o"]
+
+[ext_resource type="Script" path="res://splash_screen.gd" id="1_2cy7e"]
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_qdyrh"]
+file = "assets/videos/splash_screen.ogg"
+
+[node name="Splash_Screen" type="Node2D"]
+script = ExtResource("1_2cy7e")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = -963.0
+offset_top = -539.0
+offset_right = 957.0
+offset_bottom = 549.0
+stream = SubResource("VideoStreamTheora_qdyrh")
+autoplay = true

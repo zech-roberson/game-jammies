@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdfj2xqm0qb2o"]
+
+[ext_resource type="Script" path="res://splash_screen.gd" id="1_2cy7e"]
+[ext_resource type="AudioStream" uid="uid://07atiwqu2mr5" path="res://assets/sounds/icbz_splash_sound.mp3" id="2_5emfp"]
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_qdyrh"]
+file = "assets/videos/splash_screen.ogg"
+
+[node name="Splash_Screen" type="Node2D"]
+script = ExtResource("1_2cy7e")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = -958.0
+offset_top = -541.0
+offset_right = 962.0
+offset_bottom = 547.0
+stream = SubResource("VideoStreamTheora_qdyrh")
+autoplay = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_5emfp")
