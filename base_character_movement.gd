@@ -8,6 +8,7 @@ extends CharacterBody3D
 @onready var blockSound = $BlockSound
 @onready var powerUpSound = $PowerUpSound
 @onready var hurtSound = $HurtSound
+@onready var interactScreen = $InteractionLayer/InteractionScreen
 
 const SPEED = 5
 const MODULO_OP:float = 2
@@ -24,8 +25,13 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("ui_interact"):
 			if !Global.has_met_librarian:
 				DialogueManager.show_example_dialogue_balloon(load("res://tutorial.dialogue"))
+				Global.has_met_librarian = true
 			elif !Global.has_met_dewy:
 				DialogueManager.show_example_dialogue_balloon(load("res://first_floor.dialogue"))
+				Global.has_met_dewy = true
+			elif !Global.has_completed_tutorial:
+				DialogueManager.show_example_dialogue_balloon(load("res://alice_second_encounter.dialogue"))
+				Global.has_completed_tutorial = true
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -135,3 +141,11 @@ func _on_trigger_zone_body_exited(body: Node3D) -> void:
 		
 	if body.has_method("isEnemy"):
 		enemy_in_range = false
+
+
+func _on_trigger_zone_2_body_entered(body: Node3D) -> void:
+	Global.show_interaction_screen = Global.has_completed_tutorial
+
+
+func _on_trigger_zone_2_body_exited(body: Node3D) -> void:
+	Global.show_interaction_screen = false

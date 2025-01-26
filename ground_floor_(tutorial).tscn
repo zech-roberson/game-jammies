@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cqq08mecj8q3x"]
+[gd_scene load_steps=13 format=3 uid="uid://cqq08mecj8q3x"]
 
 [ext_resource type="Environment" uid="uid://bv6h8b3hsfxvg" path="res://resources/lvl_1_environment.tres" id="1_1keud"]
 [ext_resource type="Script" path="res://ground_floor_(tutorial).gd" id="1_1kuxk"]
@@ -7,9 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://b5nn50q3rvupo" path="res://librarian_character.tscn" id="4_yxgnt"]
 [ext_resource type="PackedScene" uid="uid://dgd2o4kb0fjvf" path="res://hud.tscn" id="6_yo2qb"]
 [ext_resource type="PackedScene" uid="uid://dgjx24mcy8s4c" path="res://scene_trigger.tscn" id="7_j73cw"]
+[ext_resource type="PackedScene" uid="uid://csjmy4xymv8va" path="res://elevator_sprite.tscn" id="8_xa805"]
+[ext_resource type="PackedScene" uid="uid://cmxkbyqu12adt" path="res://dewy_decimal.tscn" id="9_dfs1p"]
+[ext_resource type="PackedScene" uid="uid://nmo68shnomyg" path="res://interaction_screen.tscn" id="10_jsqwv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_np717"]
 size = Vector3(150, 24, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_albbw"]
+size = Vector3(1.98317, 1.96429, 1.05481)
 
 [node name="Ground Floor (Tutorial)" type="Node3D"]
 script = ExtResource("1_1kuxk")
@@ -46,3 +52,24 @@ visible = false
 
 [node name="TriggerZone" parent="." instance=ExtResource("7_j73cw")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.5422, 5.88203, 58.893)
+
+[node name="Elevator_Sprite" parent="." instance=ExtResource("8_xa805")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.949486, 5.02105, -61.7731)
+
+[node name="StaticBody3D2" parent="." instance=ExtResource("9_dfs1p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.2765, 3.00616, 26.0476)
+
+[node name="TriggerZone2" parent="." instance=ExtResource("7_j73cw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.70981, -61.3921)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="TriggerZone2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0133591, -0.00180054, 0.486389)
+shape = SubResource("BoxShape3D_albbw")
+
+[node name="InteractionLayer" type="CanvasLayer" parent="."]
+
+[node name="InteractionScreen" parent="InteractionLayer" instance=ExtResource("10_jsqwv")]
+visible = false
+
+[connection signal="body_entered" from="TriggerZone2" to="Base Character" method="_on_trigger_zone_2_body_entered"]
+[connection signal="body_exited" from="TriggerZone2" to="Base Character" method="_on_trigger_zone_2_body_exited"]

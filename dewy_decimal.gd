@@ -4,3 +4,6 @@ extends StaticBody3D
 
 func _ready() -> void:
 	racc.play("default")
+	
+func isInteractable():
+	pass

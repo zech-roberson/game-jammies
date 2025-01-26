@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://nmo68shnomyg"]
+
+[ext_resource type="FontFile" uid="uid://c6o3y6bwturee" path="res://assets/fonts/EDU_AU Font/EduAUVICWANTPre-VariableFont_wght.ttf" id="1_ivipi"]
+[ext_resource type="Script" path="res://interaction_screen.gd" id="1_lwvj0"]
+
+[sub_resource type="Theme" id="Theme_053ug"]
+
+[node name="InteractionScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lwvj0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+offset_left = 882.0
+offset_top = 521.0
+offset_right = 1030.0
+offset_bottom = 557.0
+color = Color(0, 0, 0, 0.341176)
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -16.0
+offset_right = 1851.0
+offset_bottom = 1067.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme = SubResource("Theme_053ug")
+theme_override_fonts/font = ExtResource("1_ivipi")
+text = "Press E to Interact
+"
+horizontal_alignment = 1
+vertical_alignment = 1

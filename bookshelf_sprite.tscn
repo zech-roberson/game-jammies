@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv0l04thlxy8u"]
+
+[ext_resource type="Texture2D" uid="uid://ljlf3m6w4n2k" path="res://sprites/bookshelves/standard/book shelf classic lit.png" id="1_ncj8l"]
+
+[node name="Bookshelf Sprite" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = ExtResource("1_ncj8l")
