@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=100 format=3 uid="uid://cjpo5p7akqk68"]
+[gd_resource type="SpriteFrames" load_steps=107 format=3 uid="uid://cjpo5p7akqk68"]
 
 [ext_resource type="Texture2D" uid="uid://dxs6qj8giyovi" path="res://sprites/PLayer_walking.png" id="1_1asu1"]
 [ext_resource type="Texture2D" uid="uid://k845qfhhrkvc" path="res://sprites/player_attack.png" id="1_74hmu"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://rbnqky03abij" path="res://sprites/player_power_up.png" id="2_8w721"]
 [ext_resource type="Texture2D" uid="uid://etsissqk0csd" path="res://sprites/player_dodge_left.png" id="2_j37jc"]
 [ext_resource type="Texture2D" uid="uid://ihugdk4mbxlp" path="res://sprites/player_dodge_right.png" id="3_0lba0"]
+[ext_resource type="Texture2D" uid="uid://0fauna78myog" path="res://sprites/walking_trash.png" id="8_c65lx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kn1mg"]
 atlas = ExtResource("1_74hmu")
@@ -376,6 +377,30 @@ region = Rect2(1152, 1152, 384, 384)
 atlas = ExtResource("1_1asu1")
 region = Rect2(1536, 1152, 384, 384)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mysy3"]
+atlas = ExtResource("8_c65lx")
+region = Rect2(0, 0, 114, 246)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjjtq"]
+atlas = ExtResource("8_c65lx")
+region = Rect2(0, 246, 114, 246)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ouhl1"]
+atlas = ExtResource("8_c65lx")
+region = Rect2(0, 492, 114, 246)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6sfm"]
+atlas = ExtResource("8_c65lx")
+region = Rect2(0, 738, 114, 246)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0bxy"]
+atlas = ExtResource("8_c65lx")
+region = Rect2(0, 984, 114, 246)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5nyt"]
+atlas = ExtResource("8_c65lx")
+region = Rect2(0, 1230, 114, 246)
+
 [resource]
 animations = [{
 "frames": [{
@@ -702,5 +727,28 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_right_away",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mysy3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjjtq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ouhl1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6sfm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0bxy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5nyt")
+}],
+"loop": true,
+"name": &"waslking_trash",
 "speed": 5.0
 }]

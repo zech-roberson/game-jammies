@@ -6,8 +6,7 @@ script/source = "extends Node3D
 # put scenes you want added to your floor here
 # shelf is 4x2.5x.5
 var shelf_scene = preload(\"res://blender_assets/bookshelf_3m.blend\")
-var rug_floor = preload(\"res://blender_assets/rug_floor.blend\")
-var wood_floor = preload(\"res://blender_assets/wood_floor.blend\")
+var basic_floor = preload(\"res://blender_assets/hospital_floor.blend\")
 
 # hardcoding the size of the floors to 50x50 meters,
 #	25 meters left of the origin, 25 right of the origin
@@ -19,7 +18,7 @@ func _ready() -> void:
 	print(\"Loading flooring.\\n\")
 	# make a text file of 50 columns and 50 rows representing the
 	#	floor layout. See floor.txt for example
-	var layoutFile = FileAccess.open(\"res://floors/11/floor.txt\", FileAccess.READ)
+	var layoutFile = FileAccess.open(\"res://floors/10/floor.txt\", FileAccess.READ)
 	var row = null
 	var floor = null
 	var item = null
@@ -31,9 +30,7 @@ func _ready() -> void:
 			# like a switch statement in C++
 			match tile:
 				\".\":
-					floor = wood_floor.instantiate()
-				\"r\":
-					floor = rug_floor.instantiate()
+					floor = basic_floor.instantiate()
 				# add whatever else you want automatically added to the floor
 				#	here
 			if (floor):
@@ -47,7 +44,7 @@ func _ready() -> void:
 		rowNum += 1
 	rowNum = -25
 	print(\"Loading floor items.\\n\")
-	layoutFile = FileAccess.open(\"res://floors/11/layout.txt\", FileAccess.READ)
+	layoutFile = FileAccess.open(\"res://floors/10/layout.txt\", FileAccess.READ)
 	while layoutFile.get_position() < layoutFile.get_length():
 		row = layoutFile.get_line()
 		for tile in row:
