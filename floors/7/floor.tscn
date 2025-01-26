@@ -87,8 +87,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var camera = find_child(\"Camera3D\")
 	var rot = camera.get_rotation_degrees()
-	camera.set_rotation_degrees(Vector3(0,0,0))
-	camera.set_global_position(Vector3(0,1,0))
+	camera.set_rotation_degrees(Vector3(-90,90,0))
+	camera.set_global_position(Vector3(0,40,0))
 "
 
 [node name="Node3D" type="Node3D"]
