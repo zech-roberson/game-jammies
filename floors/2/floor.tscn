@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://db7bh4o7800m4"]
+[gd_scene load_steps=3 format=3 uid="uid://db7bh4o7800m4"]
+
+[ext_resource type="PackedScene" uid="uid://bq30a2ioowtop" path="res://base_character.tscn" id="1_ee1yn"]
 
 [sub_resource type="GDScript" id="GDScript_y80um"]
-script/source = "extends Node3D
+script/source = "extends StaticBody3D
 
 # put scenes you want added to your floor here
 # shelf is 4x2.5x.5
@@ -28,6 +30,7 @@ func _ready() -> void:
 	var item = null
 	var item_placement_y = 0
 	var item_placement_rot = 0
+	var item_size = Vector3(1,1,1)
 	var floor_rot = [0, 90, 180, 270]
 	
 	while layoutFile.get_position() < layoutFile.get_length():
@@ -60,6 +63,8 @@ func _ready() -> void:
 	while layoutFile.get_position() < layoutFile.get_length():
 		row = layoutFile.get_line()
 		for tile in row:
+			# hardcoded size of the 3m-long bookshelves
+			item_size = Vector3(3, 2.5, 0.5)
 			match tile:
 				\"h\":
 					item = shelf_scene.instantiate()
@@ -75,12 +80,22 @@ func _ready() -> void:
 				\"t\":
 					item = table_scene.instantiate()
 					item_placement_y = 0.5
+					item_size = Vector3(2,1,2)
 			if (item):
 				add_child(item)
 				# prolly should just divide height of item and assign
 				#	result to Vector3.y...
 				item.set_global_position(Vector3(colNum,item_placement_y,rowNum))
 				item.set_rotation_degrees(Vector3(0,item_placement_rot,0))
+				# create collision object the same dimensions as item
+				var shape3d = CollisionShape3D.new()
+				var box = BoxShape3D.new()
+				box.size = item_size
+				shape3d.set_shape(box)
+				shape3d.set_global_position(item.get_global_position())
+				shape3d.set_rotation_degrees(item.get_rotation_degrees())
+				add_child(shape3d)
+				
 				item = null
 			colNum += 1
 		colNum = -25
@@ -100,13 +115,19 @@ func _process(delta: float) -> void:
 	camera.set_global_position(Vector3(0,40,0))
 "
 
-[node name="2" type="Node3D"]
+[node name="2" type="StaticBody3D"]
 script = SubResource("GDScript_y80um")
 
 [node name="Camera3D" type="Camera3D" parent="."]
+visible = false
+current = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 light_color = Color(1, 1, 0.878431, 1)
 omni_range = 30.0
 omni_attenuation = 0.0
+
+[node name="Base Character" parent="." instance=ExtResource("1_ee1yn")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.331, 1, 0)
+axis_lock_linear_y = true
