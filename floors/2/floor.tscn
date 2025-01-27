@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjoqg6ifqsoq4"]
+[gd_scene load_steps=2 format=3 uid="uid://db7bh4o7800m4"]
 
 [sub_resource type="GDScript" id="GDScript_y80um"]
 script/source = "extends Node3D
@@ -7,7 +7,8 @@ script/source = "extends Node3D
 # shelf is 4x2.5x.5
 var shelf_scene = preload(\"res://blender_assets/bookshelf_3m.blend\")
 var table_scene = preload(\"res://blender_assets/table.blend\")
-var dirt_floor = preload(\"res://blender_assets/dirt_floor.blend\")
+var grass_floor = preload(\"res://blender_assets/grass_floor.blend\")
+var flower_floor = preload(\"res://blender_assets/flower_floor.blend\")
 var cobble_floor = preload(\"res://blender_assets/cobble_floor.blend\")
 
 # hardcoding the size of the floors to 50x50 meters,
@@ -20,7 +21,7 @@ func _ready() -> void:
 	print(\"Loading flooring.\\n\")
 	# make a text file of 50 columns and 50 rows representing the
 	#	floor layout. See floor.txt for example
-	var layoutFile = FileAccess.open(\"res://floors/3/floor.txt\", FileAccess.READ)
+	var layoutFile = FileAccess.open(\"res://floors/2/floor.txt\", FileAccess.READ)
 	var rando = RandomNumberGenerator.new()
 	var row = null
 	var floor = null
@@ -35,9 +36,11 @@ func _ready() -> void:
 			# like a switch statement in C++
 			match tile:
 				\".\":
+					floor = grass_floor.instantiate()
+				\"c\":
 					floor = cobble_floor.instantiate()
-				\"d\":
-					floor = dirt_floor.instantiate()
+				\"f\":
+					floor = flower_floor.instantiate()
 				# add whatever else you want automatically added to the floor
 				#	here
 			if (floor):
@@ -53,7 +56,7 @@ func _ready() -> void:
 		rowNum += 1
 	rowNum = -25
 	print(\"Loading floor items.\\n\")
-	layoutFile = FileAccess.open(\"res://floors/3/layout.txt\", FileAccess.READ)
+	layoutFile = FileAccess.open(\"res://floors/2/layout.txt\", FileAccess.READ)
 	while layoutFile.get_position() < layoutFile.get_length():
 		row = layoutFile.get_line()
 		for tile in row:
