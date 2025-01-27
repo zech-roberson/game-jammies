@@ -8,7 +8,7 @@
 size = Vector3(1.13992, 2.62097, 0.13089)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_af1bg"]
-radius = 21.9792
+radius = 1.40739
 
 [node name="Librarian Character" type="CharacterBody3D"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
