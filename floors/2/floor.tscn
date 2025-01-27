@@ -100,7 +100,7 @@ func _process(delta: float) -> void:
 	camera.set_global_position(Vector3(0,40,0))
 "
 
-[node name="Node3D" type="Node3D"]
+[node name="2" type="Node3D"]
 script = SubResource("GDScript_y80um")
 
 [node name="Camera3D" type="Camera3D" parent="."]

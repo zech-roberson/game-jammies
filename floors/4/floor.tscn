@@ -22,11 +22,13 @@ func _ready() -> void:
 	# make a text file of 50 columns and 50 rows representing the
 	#	floor layout. See floor.txt for example
 	var layoutFile = FileAccess.open(\"res://floors/4/floor.txt\", FileAccess.READ)
+	var rando = RandomNumberGenerator.new()
 	var row = null
 	var floor = null
 	var item = null
 	var item_placement_y = 0
 	var item_placement_rot = 0
+	var floor_rot = [0, 90, 180, 270]
 	while layoutFile.get_position() < layoutFile.get_length():
 		row = layoutFile.get_line()
 		for tile in row:
@@ -45,6 +47,7 @@ func _ready() -> void:
 				# the top of flooring should always be at y level zero
 				#	so lower our 1m cube half a meter
 				floor.set_global_position(Vector3(colNum,-0.5,rowNum))
+				floor.set_rotation_degrees(Vector3(0,floor_rot[rando.randi_range(0,3)],0))
 				floor = null
 			colNum += 1
 		colNum = -25
@@ -90,7 +93,7 @@ func _process(delta: float) -> void:
 	camera.set_global_position(Vector3(0,40,0))
 "
 
-[node name="Node3D" type="Node3D"]
+[node name="4" type="Node3D"]
 script = SubResource("GDScript_y80um")
 
 [node name="Camera3D" type="Camera3D" parent="."]
