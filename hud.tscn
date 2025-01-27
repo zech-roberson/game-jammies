@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgd2o4kb0fjvf"]
+[gd_scene load_steps=14 format=3 uid="uid://dgd2o4kb0fjvf"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_gmkaq"]
 [ext_resource type="FontFile" uid="uid://c6o3y6bwturee" path="res://assets/fonts/EDU_AU Font/EduAUVICWANTPre-VariableFont_wght.ttf" id="1_rv4cu"]
@@ -6,6 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://dv5rr2lbb817t" path="res://sprites/sword_sprite.png" id="4_5j6tn"]
 [ext_resource type="Texture2D" uid="uid://13y3xsmhismo" path="res://sprites/player_heart_empty.png" id="5_231cn"]
 [ext_resource type="Texture2D" uid="uid://d1dpcr0v85h58" path="res://sprites/player_heart_full.png" id="6_aoekp"]
+[ext_resource type="Texture2D" uid="uid://dlydokrodale3" path="res://sprites/Stat Bar Empty.png" id="7_y1kqh"]
+[ext_resource type="Texture2D" uid="uid://sxjohjxtk0e5" path="res://sprites/Stat Bar Full.png" id="8_qp0va"]
+[ext_resource type="Texture2D" uid="uid://bcwjjostk2wx2" path="res://sprites/Stat Bar Full Blue.png" id="9_qesu2"]
+[ext_resource type="Texture2D" uid="uid://b6wt41aqwbst6" path="res://sprites/Stat Bar Full Yellow.png" id="10_8lb8m"]
+[ext_resource type="Texture2D" uid="uid://dqgohubntw4kg" path="res://sprites/Wing.png" id="11_3v7tu"]
+[ext_resource type="Texture2D" uid="uid://dmjtjuo3m7sfu" path="res://sprites/Shield.png" id="12_mh7ho"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_um0or"]
 bg_color = Color(0, 0, 0, 0.301961)
@@ -44,11 +50,12 @@ text = "Books Left To Shelve: "
 
 [node name="BooksCount" type="Label" parent="Panel/Control"]
 layout_mode = 2
-offset_left = 75.0
-offset_top = -15.0
-offset_right = 225.0
-offset_bottom = 14.0
+offset_left = 77.0
+offset_top = -21.0
+offset_right = 151.0
+offset_bottom = 25.0
 theme_override_fonts/font = ExtResource("1_rv4cu")
+theme_override_font_sizes/font_size = 20
 text = "##"
 
 [node name="MenuBar" type="MenuBar" parent="."]
@@ -70,27 +77,650 @@ offset_bottom = 1.0
 [node name="Brain Sprite" parent="MenuBar" instance=ExtResource("3_154ig")]
 position = Vector2(117, -151)
 
-[node name="SwordSprite" type="Sprite2D" parent="MenuBar"]
-position = Vector2(255, -50)
-scale = Vector2(0.242188, 0.255208)
-texture = ExtResource("4_5j6tn")
+[node name="PlayerFullHearts" type="Node2D" parent="MenuBar"]
 
-[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar"]
-position = Vector2(191, -146)
+[node name="HeartBoxContainer" type="HBoxContainer" parent="MenuBar/PlayerFullHearts"]
+offset_left = 170.0
+offset_top = -166.0
+offset_right = 210.0
+offset_bottom = -126.0
+
+[node name="Heart" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart"]
+visible = false
+position = Vector2(21, 20)
 scale = Vector2(0.0833333, 0.0833333)
 texture = ExtResource("5_231cn")
 
-[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar"]
-position = Vector2(214, -146)
+[node name="Heart2" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart2"]
+position = Vector2(21, 20)
 scale = Vector2(0.0885416, 0.0885416)
 texture = ExtResource("6_aoekp")
 
-[node name="PlayerHeartFull2" type="Sprite2D" parent="MenuBar"]
-position = Vector2(238, -146)
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart2"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart3" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart3"]
+position = Vector2(21, 20)
 scale = Vector2(0.0885416, 0.0885416)
 texture = ExtResource("6_aoekp")
 
-[node name="PlayerHeartFull3" type="Sprite2D" parent="MenuBar"]
-position = Vector2(262, -146)
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart3"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart4" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart4"]
+position = Vector2(21, 20)
 scale = Vector2(0.0885416, 0.0885416)
 texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart4"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart5" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart5"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart5"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart6" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart6"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart6"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart7" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart7"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart7"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart8" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart8"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart8"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart9" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart9"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart9"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart10" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart10"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart10"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart11" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart11"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart11"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart12" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart12"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart12"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart13" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart13"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart13"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart14" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart14"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart14"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart15" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart15"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart15"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart16" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart16"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart16"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart17" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart17"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart17"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart18" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart18"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart18"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart19" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart19"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart19"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart20" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart20"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart20"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart21" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart21"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart21"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart22" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart22"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart22"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart23" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart23"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart23"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart24" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart24"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart24"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart25" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart25"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart25"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart26" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart26"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart26"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart27" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart27"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart27"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart28" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart28"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart28"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart29" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart29"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart29"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart30" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart30"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart30"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart31" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart31"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart31"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart32" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart32"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart32"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart33" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart33"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart33"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart34" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart34"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart34"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart35" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart35"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart35"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart36" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart36"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart36"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart37" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart37"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart37"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart38" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart38"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart38"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="Heart39" type="TextureRect" parent="MenuBar/PlayerFullHearts/HeartBoxContainer"]
+custom_minimum_size = Vector2(19, 0)
+layout_mode = 2
+
+[node name="PlayerHeartFull" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart39"]
+position = Vector2(21, 20)
+scale = Vector2(0.0885416, 0.0885416)
+texture = ExtResource("6_aoekp")
+
+[node name="PlayerHeartEmpty" type="Sprite2D" parent="MenuBar/PlayerFullHearts/HeartBoxContainer/Heart39"]
+visible = false
+position = Vector2(21, 20)
+scale = Vector2(0.0833333, 0.0833333)
+texture = ExtResource("5_231cn")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuBar"]
+layout_mode = 0
+offset_left = 75.0
+offset_top = -69.0
+offset_right = 115.0
+offset_bottom = -29.0
+
+[node name="SwordSprite" type="Sprite2D" parent="MenuBar/HBoxContainer"]
+position = Vector2(38, 21)
+scale = Vector2(0.242188, 0.255208)
+texture = ExtResource("4_5j6tn")
+
+[node name="Shield" type="Sprite2D" parent="MenuBar/HBoxContainer"]
+position = Vector2(585, 18)
+scale = Vector2(0.210938, 0.210938)
+texture = ExtResource("12_mh7ho")
+
+[node name="Wing" type="Sprite2D" parent="MenuBar/HBoxContainer"]
+position = Vector2(1124, 19)
+scale = Vector2(0.171875, 0.171875)
+texture = ExtResource("11_3v7tu")
+
+[node name="Strength" type="TextureProgressBar" parent="MenuBar"]
+layout_mode = 0
+offset_left = -10.0
+offset_top = -97.0
+offset_right = 374.0
+offset_bottom = 287.0
+scale = Vector2(2, 0.25)
+max_value = 50.0
+texture_under = ExtResource("7_y1kqh")
+texture_progress = ExtResource("8_qp0va")
+
+[node name="Block" type="TextureProgressBar" parent="MenuBar"]
+layout_mode = 0
+offset_left = 533.0
+offset_top = -98.0
+offset_right = 917.0
+offset_bottom = 286.0
+scale = Vector2(2, 0.25)
+max_value = 50.0
+texture_under = ExtResource("7_y1kqh")
+texture_progress = ExtResource("9_qesu2")
+
+[node name="Schwift" type="TextureProgressBar" parent="MenuBar"]
+layout_mode = 0
+offset_left = 1082.0
+offset_top = -100.0
+offset_right = 1466.0
+offset_bottom = 284.0
+scale = Vector2(2, 0.25)
+max_value = 50.0
+texture_under = ExtResource("7_y1kqh")
+texture_progress = ExtResource("10_8lb8m")

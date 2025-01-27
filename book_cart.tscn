@@ -1,0 +1,89 @@
+[gd_scene load_steps=16 format=3 uid="uid://cpxhako1m6p7c"]
+
+[ext_resource type="Texture2D" uid="uid://dyvblrj470omk" path="res://sprites/cart/full/Book cart classic lit full (1).png" id="1_3b833"]
+[ext_resource type="Script" path="res://book_cart.gd" id="1_j3fnw"]
+[ext_resource type="Texture2D" uid="uid://cl1prkwuiyukm" path="res://sprites/cart/9/Book cart classic lit full.png" id="2_41grk"]
+[ext_resource type="Texture2D" uid="uid://c8nu8io6rq4lu" path="res://sprites/cart/8/Book cart classic lit 9.png" id="3_luo74"]
+[ext_resource type="Texture2D" uid="uid://bmy8ei4iv3h0r" path="res://sprites/cart/7/Book cart classic lit 7.png" id="4_cshh6"]
+[ext_resource type="Texture2D" uid="uid://dspiphotcmry3" path="res://sprites/cart/6/Book cart classic lit 6.png" id="5_o6mnj"]
+[ext_resource type="Texture2D" uid="uid://butldmglwvar1" path="res://sprites/cart/5/Book cart classic lit 5.png" id="6_g4b0k"]
+[ext_resource type="Texture2D" uid="uid://ujnkdiu4idf8" path="res://sprites/cart/4/Book cart classic lit 4.png" id="7_to1j7"]
+[ext_resource type="Texture2D" uid="uid://bs0xotaiq5tt6" path="res://sprites/cart/3/Book cart classic lit 3.png" id="8_o874j"]
+[ext_resource type="Texture2D" uid="uid://djeebj7qagemt" path="res://sprites/cart/2/Book cart classic lit 2.png" id="9_w52dd"]
+[ext_resource type="Texture2D" uid="uid://vqgpwqsq6t80" path="res://sprites/cart/1/Book cart classic lit 1.png" id="10_vhjc6"]
+[ext_resource type="Texture2D" uid="uid://pgnmbdfxhwox" path="res://sprites/cart/empty/Book cart .png" id="11_7g4p5"]
+[ext_resource type="PackedScene" uid="uid://dgjx24mcy8s4c" path="res://scene_trigger.tscn" id="12_hfpqj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wscpf"]
+size = Vector3(0.575623, 0.385986, 0.0466309)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_560mh"]
+radius = 0.489718
+
+[node name="Book Cart" type="Node3D"]
+script = ExtResource("1_j3fnw")
+
+[node name="Full" type="Sprite3D" parent="."]
+texture_filter = 0
+texture = ExtResource("1_3b833")
+
+[node name="Nine" type="Sprite3D" parent="."]
+visible = false
+texture_filter = 0
+texture = ExtResource("2_41grk")
+
+[node name="Eight" type="Sprite3D" parent="."]
+visible = false
+texture_filter = 0
+texture = ExtResource("3_luo74")
+
+[node name="Seven" type="Sprite3D" parent="."]
+visible = false
+texture_filter = 0
+texture = ExtResource("4_cshh6")
+
+[node name="Six" type="Sprite3D" parent="."]
+visible = false
+texture_filter = 0
+texture = ExtResource("5_o6mnj")
+
+[node name="Five" type="Sprite3D" parent="."]
+visible = false
+texture_filter = 0
+texture = ExtResource("6_g4b0k")
+
+[node name="Four" type="Sprite3D" parent="."]
+visible = false
+texture_filter = 0
+texture = ExtResource("7_to1j7")
+
+[node name="Three" type="Sprite3D" parent="."]
+visible = false
+texture_filter = 0
+texture = ExtResource("8_o874j")
+
+[node name="Two" type="Sprite3D" parent="."]
+visible = false
+texture_filter = 0
+texture = ExtResource("9_w52dd")
+
+[node name="One" type="Sprite3D" parent="."]
+visible = false
+texture_filter = 0
+texture = ExtResource("10_vhjc6")
+
+[node name="Empty" type="Sprite3D" parent="."]
+visible = false
+texture_filter = 0
+texture = ExtResource("11_7g4p5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0213318, 0.00378418, 0.00549316)
+shape = SubResource("BoxShape3D_wscpf")
+
+[node name="TriggerZone" parent="." instance=ExtResource("12_hfpqj")]
+
+[node name="Talk_Range" type="CollisionShape3D" parent="TriggerZone"]
+shape = SubResource("SphereShape3D_560mh")

@@ -7,3 +7,9 @@ func _ready() -> void:
 	
 func isInteractable():
 	pass
+
+func isNPC():
+	pass
+	
+func isDewy():
+	pass
