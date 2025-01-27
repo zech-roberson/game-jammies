@@ -72,7 +72,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction.x * _mult_speed(is_sprinting)
 		velocity.z = direction.z * _mult_speed(is_sprinting)
 		if (velocity.x > 0 and velocity.z == 0) or (velocity.x > 0 and velocity.z > 0):
-			player_walk.play("waslking_trash")  
+			player_walk.play("walk_right")  
 		elif (velocity.x < 0 and velocity.z == 0) or (velocity.x < 0 and velocity.z > 0):
 			player_walk.play("walk_left")  
 		elif velocity.x > 0 and velocity.z < 0:

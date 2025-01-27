@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://dglbqbfpan7m2"]
+[gd_scene load_steps=2 format=3 uid="uid://cjoqg6ifqsoq4"]
 
 [sub_resource type="GDScript" id="GDScript_y80um"]
 script/source = "extends Node3D
@@ -6,7 +6,9 @@ script/source = "extends Node3D
 # put scenes you want added to your floor here
 # shelf is 4x2.5x.5
 var shelf_scene = preload(\"res://blender_assets/bookshelf_3m.blend\")
+var table_scene = preload(\"res://blender_assets/table.blend\")
 var basic_floor = preload(\"res://blender_assets/hospital_floor.blend\")
+var wood_floor = preload(\"res://blender_assets/wood_floor.blend\")
 
 # hardcoding the size of the floors to 50x50 meters,
 #	25 meters left of the origin, 25 right of the origin
@@ -18,7 +20,7 @@ func _ready() -> void:
 	print(\"Loading flooring.\\n\")
 	# make a text file of 50 columns and 50 rows representing the
 	#	floor layout. See floor.txt for example
-	var layoutFile = FileAccess.open(\"res://floors/10/floor.txt\", FileAccess.READ)
+	var layoutFile = FileAccess.open(\"res://floors/5/floor.txt\", FileAccess.READ)
 	var rando = RandomNumberGenerator.new()
 	var row = null
 	var floor = null
@@ -33,6 +35,8 @@ func _ready() -> void:
 			match tile:
 				\".\":
 					floor = basic_floor.instantiate()
+				\"w\":
+					floor = wood_floor.instantiate()
 				# add whatever else you want automatically added to the floor
 				#	here
 			if (floor):
@@ -47,7 +51,7 @@ func _ready() -> void:
 		rowNum += 1
 	rowNum = -25
 	print(\"Loading floor items.\\n\")
-	layoutFile = FileAccess.open(\"res://floors/10/layout.txt\", FileAccess.READ)
+	layoutFile = FileAccess.open(\"res://floors/5/layout.txt\", FileAccess.READ)
 	while layoutFile.get_position() < layoutFile.get_length():
 		row = layoutFile.get_line()
 		for tile in row:
@@ -63,6 +67,9 @@ func _ready() -> void:
 					item = shelf_scene.instantiate()
 					item_placement_y = 1.25
 					item_placement_rot = 90
+				\"t\":
+					item = table_scene.instantiate()
+					item_placement_y = 0.5
 			if (item):
 				add_child(item)
 				# prolly should just divide height of item and assign
@@ -83,7 +90,7 @@ func _process(delta: float) -> void:
 	camera.set_global_position(Vector3(0,40,0))
 "
 
-[node name="10" type="Node3D"]
+[node name="5" type="Node3D"]
 script = SubResource("GDScript_y80um")
 
 [node name="Camera3D" type="Camera3D" parent="."]

@@ -8,43 +8,39 @@
 [ext_resource type="PackedScene" uid="uid://dgjx24mcy8s4c" path="res://scene_trigger.tscn" id="6_7spvl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b74d8"]
-size = Vector3(1, 1.05908, 1)
+size = Vector3(12.6532, 36.2999, 0.1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_xt0va"]
 radius = 0.880523
 
 [node name="Base Character" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.331116, 0, 0)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.331116, 0, 0)
 script = ExtResource("1_og8ke")
 
 [node name="Player-Walk" type="AnimatedSprite3D" parent="."]
-pixel_size = 0.0046
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
 texture_filter = 0
 sprite_frames = ExtResource("2_k67ng")
-animation = &"waslking_trash"
-frame_progress = 0.506928
+animation = &"walk_left"
+frame_progress = 0.297809
 
 [node name="Player-Condition-Block" type="AnimatedSprite3D" parent="."]
 visible = false
-pixel_size = 0.0046
 sprite_frames = ExtResource("2_k67ng")
 animation = &"walk_left"
 
 [node name="Player-Condition-Power-Up" type="AnimatedSprite3D" parent="."]
 visible = false
-pixel_size = 0.0046
 sprite_frames = ExtResource("2_k67ng")
 animation = &"walk_left"
 
 [node name="Player-Condition-Hurt" type="AnimatedSprite3D" parent="."]
 visible = false
-pixel_size = 0.0046
 sprite_frames = ExtResource("2_k67ng")
 animation = &"walk_left"
 
 [node name="Player-Action-Dodge" type="AnimatedSprite3D" parent="."]
 visible = false
-pixel_size = 0.0046
 sprite_frames = ExtResource("2_k67ng")
 animation = &"player_attack"
 frame = 17
@@ -52,12 +48,11 @@ frame_progress = 0.808368
 
 [node name="Player-Action-Attack" type="AnimatedSprite3D" parent="."]
 visible = false
-pixel_size = 0.0046
 sprite_frames = ExtResource("2_k67ng")
 animation = &"player_block"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.029541, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.98541, -2.3681, 0)
 shape = SubResource("BoxShape3D_b74d8")
 
 [node name="Camera_Controller" type="Node3D" parent="."]
@@ -65,7 +60,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.331116, 0, 0)
 top_level = true
 
 [node name="Camera_Target" type="Node3D" parent="Camera_Controller"]
-transform = Transform3D(1, 0, 0, 0, 0.952799, 0.303601, 0, -0.303601, 0.952799, 0, 0.555034, 1.82286)
+transform = Transform3D(1, 0, 0, 0, 0.952799, 0.303601, 0, -0.303601, 0.952799, 0, 0.555034, 3.61557)
 
 [node name="Camera3D" type="Camera3D" parent="Camera_Controller/Camera_Target"]
 transform = Transform3D(1, 0, 0, 0, 0.995076, -0.0991113, 0, 0.0991113, 0.995076, 0, 0, 0)

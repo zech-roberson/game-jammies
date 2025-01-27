@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://dglbqbfpan7m2"]
+[gd_scene load_steps=2 format=3 uid="uid://db7bh4o7800m4"]
 
 [sub_resource type="GDScript" id="GDScript_y80um"]
 script/source = "extends Node3D
@@ -6,7 +6,10 @@ script/source = "extends Node3D
 # put scenes you want added to your floor here
 # shelf is 4x2.5x.5
 var shelf_scene = preload(\"res://blender_assets/bookshelf_3m.blend\")
-var basic_floor = preload(\"res://blender_assets/hospital_floor.blend\")
+var table_scene = preload(\"res://blender_assets/table.blend\")
+var grass_floor = preload(\"res://blender_assets/grass_floor.blend\")
+var flower_floor = preload(\"res://blender_assets/flower_floor.blend\")
+var cobble_floor = preload(\"res://blender_assets/cobble_floor.blend\")
 
 # hardcoding the size of the floors to 50x50 meters,
 #	25 meters left of the origin, 25 right of the origin
@@ -18,7 +21,7 @@ func _ready() -> void:
 	print(\"Loading flooring.\\n\")
 	# make a text file of 50 columns and 50 rows representing the
 	#	floor layout. See floor.txt for example
-	var layoutFile = FileAccess.open(\"res://floors/10/floor.txt\", FileAccess.READ)
+	var layoutFile = FileAccess.open(\"res://floors/2/floor.txt\", FileAccess.READ)
 	var rando = RandomNumberGenerator.new()
 	var row = null
 	var floor = null
@@ -26,13 +29,18 @@ func _ready() -> void:
 	var item_placement_y = 0
 	var item_placement_rot = 0
 	var floor_rot = [0, 90, 180, 270]
+	
 	while layoutFile.get_position() < layoutFile.get_length():
 		row = layoutFile.get_line()
 		for tile in row:
 			# like a switch statement in C++
 			match tile:
 				\".\":
-					floor = basic_floor.instantiate()
+					floor = grass_floor.instantiate()
+				\"c\":
+					floor = cobble_floor.instantiate()
+				\"f\":
+					floor = flower_floor.instantiate()
 				# add whatever else you want automatically added to the floor
 				#	here
 			if (floor):
@@ -40,6 +48,7 @@ func _ready() -> void:
 				# the top of flooring should always be at y level zero
 				#	so lower our 1m cube half a meter
 				floor.set_global_position(Vector3(colNum,-0.5,rowNum))
+				# randomly orient the floor to get some variety
 				floor.set_rotation_degrees(Vector3(0,floor_rot[rando.randi_range(0,3)],0))
 				floor = null
 			colNum += 1
@@ -47,7 +56,7 @@ func _ready() -> void:
 		rowNum += 1
 	rowNum = -25
 	print(\"Loading floor items.\\n\")
-	layoutFile = FileAccess.open(\"res://floors/10/layout.txt\", FileAccess.READ)
+	layoutFile = FileAccess.open(\"res://floors/2/layout.txt\", FileAccess.READ)
 	while layoutFile.get_position() < layoutFile.get_length():
 		row = layoutFile.get_line()
 		for tile in row:
@@ -63,6 +72,9 @@ func _ready() -> void:
 					item = shelf_scene.instantiate()
 					item_placement_y = 1.25
 					item_placement_rot = 90
+				\"t\":
+					item = table_scene.instantiate()
+					item_placement_y = 0.5
 			if (item):
 				add_child(item)
 				# prolly should just divide height of item and assign
@@ -73,6 +85,11 @@ func _ready() -> void:
 			colNum += 1
 		colNum = -25
 		rowNum += 1
+	rowNum = -25
+	#print(\"Loading lighting.\")
+	#for x in range(rowNum, -rowNum):
+	#	for y in range(colNum, -colNum):
+	#		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # I just put this here so I have a camera to see my work.
@@ -83,7 +100,7 @@ func _process(delta: float) -> void:
 	camera.set_global_position(Vector3(0,40,0))
 "
 
-[node name="10" type="Node3D"]
+[node name="2" type="Node3D"]
 script = SubResource("GDScript_y80um")
 
 [node name="Camera3D" type="Camera3D" parent="."]
