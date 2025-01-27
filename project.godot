@@ -86,5 +86,4 @@ locale/translations_pot_files=PackedStringArray("res://tutorial.dialogue", "res:
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-limits/opengl/max_lights_per_object=25
 anti_aliasing/quality/msaa_3d=1
