@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://j032s0i5a5hu"
-path.s3tc="res://.godot/imported/dirt.png-eff3bf0cf4f0b63edc466aba593ca4e6.s3tc.ctex"
+uid="uid://bmy8ei4iv3h0r"
+path.s3tc="res://.godot/imported/Book cart classic lit 7.png-a6f519d691a2a60c6106dcd3d6689016.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/dirt.png"
-dest_files=["res://.godot/imported/dirt.png-eff3bf0cf4f0b63edc466aba593ca4e6.s3tc.ctex"]
+source_file="res://sprites/cart/7/Book cart classic lit 7.png"
+dest_files=["res://.godot/imported/Book cart classic lit 7.png-a6f519d691a2a60c6106dcd3d6689016.s3tc.ctex"]
 
 [params]
 

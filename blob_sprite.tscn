@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=3 uid="uid://coju2tww4inji"]
+
+[ext_resource type="Texture2D" uid="uid://dcupaxdl2xx8w" path="res://sprites/enemies/da blobl/blob frams.png" id="1_ajjca"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_335hb"]
+atlas = ExtResource("1_ajjca")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btiek"]
+atlas = ExtResource("1_ajjca")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kudrc"]
+atlas = ExtResource("1_ajjca")
+region = Rect2(0, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wd6w"]
+atlas = ExtResource("1_ajjca")
+region = Rect2(0, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5cmw"]
+atlas = ExtResource("1_ajjca")
+region = Rect2(0, 768, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udsss"]
+atlas = ExtResource("1_ajjca")
+region = Rect2(0, 960, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13a8l"]
+atlas = ExtResource("1_ajjca")
+region = Rect2(0, 1152, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igmhm"]
+atlas = ExtResource("1_ajjca")
+region = Rect2(0, 1344, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yi6sc"]
+atlas = ExtResource("1_ajjca")
+region = Rect2(0, 1536, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_76vbc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_335hb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btiek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kudrc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wd6w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5cmw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udsss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13a8l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igmhm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yi6sc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="blob sprite" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_76vbc")
+frame_progress = 0.544615

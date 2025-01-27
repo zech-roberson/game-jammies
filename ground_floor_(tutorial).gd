@@ -1,7 +1,8 @@
 extends Node3D
 
-@onready var dialoguePt1 = $"Dialogue/Tutorial Dialogue"
 @onready var interactScreen = $InteractionLayer/InteractionScreen
+@onready var interactSrceenWithBookshelf = $InteractionLayer/InteractionScreenWithBookshelf
+@onready var elevator = $Elevator_Sprite/AnimatedSprite3D
 
 # put scene's you want added to your floor here
 # shelf is 4x2.5x.5
@@ -17,6 +18,8 @@ var colNum = -25
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.floor_number = Global.FLOORS.FIRST
+	
 	print("Loading flooring.\n")
 	# make a text file of 50 columns and 50 rows representing the
 	#	floor layout. See floor.txt for example
@@ -74,7 +77,18 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Global.show_interaction_screen == true:
+	if Global.interactable_object_in_range == Global.INTERACTABLE.CART && Global.has_met_librarian:
 		interactScreen.show()
+		if Input.is_action_just_pressed("ui_interact"):
+			Global.books_left_to_shelve_floor_1 -= 1
+			Global.is_holding_book = true
+	elif Global.interactable_object_in_range == Global.INTERACTABLE.ELEVATOR && Global.books_shelved == 10:
+		interactScreen.show()
+	elif Global.interactable_object_in_range == Global.INTERACTABLE.SHELF && Global.is_holding_book:
+		interactSrceenWithBookshelf.show()
+		if Input.is_action_just_pressed("ui_interact") || Input.is_action_just_pressed("power_up"):
+			Global.is_holding_book = false
+			Global.books_shelved += 1
 	else:
 		interactScreen.hide()
+		interactSrceenWithBookshelf.hide()

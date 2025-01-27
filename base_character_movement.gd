@@ -8,30 +8,27 @@ extends CharacterBody3D
 @onready var blockSound = $BlockSound
 @onready var powerUpSound = $PowerUpSound
 @onready var hurtSound = $HurtSound
-@onready var interactScreen = $InteractionLayer/InteractionScreen
 
 const SPEED = 5
 const MODULO_OP:float = 2
 var num_of_books = 0;
-var talking_npc_in_range = false;
-var enemy_in_range = false;
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-		
-	if talking_npc_in_range == true:
+	
+	##Determine which dialogue to give player in Tutorial
+	if Global.talking_npc_in_range != Global.NPC.NONE:
 		if Input.is_action_just_pressed("ui_interact"):
-			if !Global.has_met_librarian:
+			if !Global.has_met_librarian && Global.talking_npc_in_range == Global.NPC.LIBRARIAN:
 				DialogueManager.show_example_dialogue_balloon(load("res://tutorial.dialogue"))
 				Global.has_met_librarian = true
-			elif !Global.has_met_dewy:
+			elif !Global.has_met_dewy && Global.has_met_librarian && Global.talking_npc_in_range == Global.NPC.DEWY && Global.is_holding_book:
 				DialogueManager.show_example_dialogue_balloon(load("res://first_floor.dialogue"))
 				Global.has_met_dewy = true
-			elif !Global.has_completed_tutorial:
+			elif Global.books_shelved == 10 && Global.has_met_dewy && Global.talking_npc_in_range == Global.NPC.LIBRARIAN:
 				DialogueManager.show_example_dialogue_balloon(load("res://alice_second_encounter.dialogue"))
-				Global.has_completed_tutorial = true
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -40,7 +37,7 @@ func _physics_process(delta: float) -> void:
 	
 	var noSoundsArePlaying = !blockSound.playing && !powerUpSound.playing && !hurtSound.playing	
 	
-	var is_blocking := Input.is_key_pressed(KEY_B)
+	var is_blocking := Input.is_key_pressed(KEY_TAB)
 	
 	if is_blocking:
 		player_walk.hide()
@@ -50,7 +47,7 @@ func _physics_process(delta: float) -> void:
 			player_condition_block.hide()
 			player_walk.show()
 	
-	var is_powering_up := Input.is_key_pressed(KEY_J)
+	var is_powering_up := Input.is_key_pressed(KEY_R)
 	
 	if is_powering_up:
 		player_walk.hide()
@@ -60,9 +57,9 @@ func _physics_process(delta: float) -> void:
 			player_condition_power_up.hide()
 			player_walk.show()
 	
-	var is_hurting := Input.is_key_pressed(KEY_H)
+	#var is_hurting := Input.is_key_pressed(KEY_H)
 
-	if is_hurting:
+	if Global.is_hurting:
 		player_walk.hide()
 		playHurtAnimAndSound(noSoundsArePlaying)
 	else:
@@ -118,6 +115,7 @@ func playHurtAnimAndSound(areSoundsPlaying:bool) -> void:
 		player_condition_hurt.show()
 		player_condition_hurt.play("player_hurt")
 		hurtSound.play()
+		Global.player_health -= 1
 	
 func playPowerUpAndSound(areSoundsPlaying:bool) -> void:
 	if areSoundsPlaying:
@@ -129,23 +127,41 @@ func playPowerUpAndSound(areSoundsPlaying:bool) -> void:
 
 func _on_trigger_zone_body_entered(body: Node3D) -> void:
 	if body.has_method("isInteractable"):
-		talking_npc_in_range = true
-		
-	if body.has_method("isEnemy"):
-		enemy_in_range = true
+		if body.has_method("isNPC"):
+			if body.has_method("isLibrarian"):
+				Global.talking_npc_in_range = Global.NPC.LIBRARIAN
+			elif body.has_method("isDewy"): 
+				Global.talking_npc_in_range = Global.NPC.DEWY
+		elif body.has_method("isEnemy"):
+			Global.enemy_in_range = Global.ENEMY.SKELETON
+		elif body.has_method("isBookshelf"):
+			Global.interactable_object_in_range = Global.INTERACTABLE.SHELF
 
 
 func _on_trigger_zone_body_exited(body: Node3D) -> void:
 	if body.has_method("isInteractable"):
-		talking_npc_in_range = false
-		
-	if body.has_method("isEnemy"):
-		enemy_in_range = false
+		if body.has_method("isNPC"):
+			if body.has_method("isLibrarian"):
+				Global.talking_npc_in_range = Global.NPC.NONE
+			elif body.has_method("isDewy"): 
+				Global.talking_npc_in_range = Global.NPC.NONE
+		elif body.has_method("isEnemy"):
+			Global.enemy_in_range = Global.ENEMY.NONE
+		elif body.has_method("isBookshelf"):
+			Global.interactable_object_in_range = Global.INTERACTABLE.SHELF
 
 
 func _on_trigger_zone_2_body_entered(body: Node3D) -> void:
-	Global.show_interaction_screen = Global.has_completed_tutorial
+	Global.interactable_object_in_range = Global.INTERACTABLE.ELEVATOR
 
 
 func _on_trigger_zone_2_body_exited(body: Node3D) -> void:
-	Global.show_interaction_screen = false
+	Global.interactable_object_in_range = Global.INTERACTABLE.NONE
+
+
+func _on_book_cart_zone_body_entered(body: Node3D) -> void:
+	Global.interactable_object_in_range = Global.INTERACTABLE.CART
+
+
+func _on_book_cart_zone_body_exited(body: Node3D) -> void:
+	Global.interactable_object_in_range = Global.INTERACTABLE.NONE

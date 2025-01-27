@@ -8,9 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://dgjx24mcy8s4c" path="res://scene_trigger.tscn" id="6_7spvl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b74d8"]
+size = Vector3(1, 1.05908, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_xt0va"]
-radius = 21.9792
+radius = 0.880523
 
 [node name="Base Character" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.331116, 0, 0)
@@ -24,28 +25,24 @@ animation = &"waslking_trash"
 frame_progress = 0.506928
 
 [node name="Player-Condition-Block" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
 visible = false
 pixel_size = 0.0046
 sprite_frames = ExtResource("2_k67ng")
 animation = &"walk_left"
 
 [node name="Player-Condition-Power-Up" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
 visible = false
 pixel_size = 0.0046
 sprite_frames = ExtResource("2_k67ng")
 animation = &"walk_left"
 
 [node name="Player-Condition-Hurt" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
 visible = false
 pixel_size = 0.0046
 sprite_frames = ExtResource("2_k67ng")
 animation = &"walk_left"
 
 [node name="Player-Action-Dodge" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
 visible = false
 pixel_size = 0.0046
 sprite_frames = ExtResource("2_k67ng")
@@ -60,6 +57,7 @@ sprite_frames = ExtResource("2_k67ng")
 animation = &"player_block"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.029541, 0)
 shape = SubResource("BoxShape3D_b74d8")
 
 [node name="Camera_Controller" type="Node3D" parent="."]
