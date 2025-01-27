@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://j032s0i5a5hu"
-path.s3tc="res://.godot/imported/dirt.png-eff3bf0cf4f0b63edc466aba593ca4e6.s3tc.ctex"
+uid="uid://dxuk3gtje7bv1"
+path.s3tc="res://.godot/imported/cobblestone.jpg-a1f68b51c50ed72bbce1c4f43fd380d6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/dirt.png"
-dest_files=["res://.godot/imported/dirt.png-eff3bf0cf4f0b63edc466aba593ca4e6.s3tc.ctex"]
+source_file="res://assets/textures/cobblestone.jpg"
+dest_files=["res://.godot/imported/cobblestone.jpg-a1f68b51c50ed72bbce1c4f43fd380d6.s3tc.ctex"]
 
 [params]
 
