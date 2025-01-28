@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doihfr8r6a7c3"
-path.s3tc="res://.godot/imported/player_hurt.png-5d0d051769d624a9a546f6002cdcf15f.s3tc.ctex"
+uid="uid://c0fegr6rawu78"
+path.s3tc="res://.godot/imported/hurt.png-86727907cb536591b5ecf58304a6fd62.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://sprites/player_hurt.png"
-dest_files=["res://.godot/imported/player_hurt.png-5d0d051769d624a9a546f6002cdcf15f.s3tc.ctex"]
+source_file="res://assets/textures/player/hurt.png"
+dest_files=["res://.godot/imported/hurt.png-86727907cb536591b5ecf58304a6fd62.s3tc.ctex"]
 
 [params]
 
