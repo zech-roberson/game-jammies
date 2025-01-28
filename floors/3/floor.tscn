@@ -28,6 +28,7 @@ func _ready() -> void:
 	var item_placement_y = 0
 	var item_placement_rot = 0
 	var floor_rot = [0, 90, 180, 270]
+	var item_size = Vector3(1,1,1)
 	
 	while layoutFile.get_position() < layoutFile.get_length():
 		row = layoutFile.get_line()
@@ -57,6 +58,8 @@ func _ready() -> void:
 	while layoutFile.get_position() < layoutFile.get_length():
 		row = layoutFile.get_line()
 		for tile in row:
+			# hardcoded size of the 3m-long bookshelves
+			item_size = Vector3(3, 2.5, 0.5)
 			match tile:
 				\"h\":
 					item = shelf_scene.instantiate()
@@ -72,12 +75,21 @@ func _ready() -> void:
 				\"t\":
 					item = table_scene.instantiate()
 					item_placement_y = 0.5
+					item_size = Vector3(2,1,2)
 			if (item):
 				add_child(item)
 				# prolly should just divide height of item and assign
 				#	result to Vector3.y...
 				item.set_global_position(Vector3(colNum,item_placement_y,rowNum))
 				item.set_rotation_degrees(Vector3(0,item_placement_rot,0))
+				# create collision object the same dimensions as item
+				var shape3d = CollisionShape3D.new()
+				var box = BoxShape3D.new()
+				box.size = item_size
+				shape3d.set_shape(box)
+				shape3d.set_global_position(item.get_global_position())
+				shape3d.set_rotation_degrees(item.get_rotation_degrees())
+				add_child(shape3d)
 				item = null
 			colNum += 1
 		colNum = -25
@@ -97,10 +109,11 @@ func _process(delta: float) -> void:
 	camera.set_global_position(Vector3(0,40,0))
 "
 
-[node name="3" type="Node3D"]
+[node name="3" type="StaticBody3D"]
 script = SubResource("GDScript_y80um")
 
 [node name="Camera3D" type="Camera3D" parent="."]
+current = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
