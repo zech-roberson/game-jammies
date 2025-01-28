@@ -16,43 +16,39 @@ radius = 21.9792
 script = ExtResource("1_og8ke")
 
 [node name="Player-Walk" type="AnimatedSprite3D" parent="."]
-pixel_size = 0.0046
+pixel_size = 0.007
 texture_filter = 0
 sprite_frames = ExtResource("2_k67ng")
-animation = &"player_dodge_left"
+animation = &"walk_right"
 
 [node name="Player-Condition-Block" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
 visible = false
-pixel_size = 0.0046
+pixel_size = 0.007
 sprite_frames = ExtResource("2_k67ng")
 animation = &"player_attack"
 
 [node name="Player-Condition-Power-Up" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
 visible = false
-pixel_size = 0.0046
+pixel_size = 0.007
 sprite_frames = ExtResource("2_k67ng")
 animation = &"player_attack"
 
 [node name="Player-Condition-Hurt" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
 visible = false
-pixel_size = 0.0046
+pixel_size = 0.007
 sprite_frames = ExtResource("2_k67ng")
 animation = &"player_attack"
 
 [node name="Player-Action-Dodge" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
 visible = false
-pixel_size = 0.0046
+pixel_size = 0.007
 sprite_frames = ExtResource("2_k67ng")
 animation = &"player_attack"
 frame_progress = 0.808368
 
 [node name="Player-Action-Attack" type="AnimatedSprite3D" parent="."]
 visible = false
-pixel_size = 0.0046
+pixel_size = 0.007
 sprite_frames = ExtResource("2_k67ng")
 animation = &"player_block"
 
@@ -63,10 +59,10 @@ shape = SubResource("BoxShape3D_b74d8")
 top_level = true
 
 [node name="Camera_Target" type="Node3D" parent="Camera_Controller"]
-transform = Transform3D(1, 0, 0, 0, 0.952799, 0.303601, 0, -0.303601, 0.952799, 0, 0.555034, 1.82286)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2.5)
 
 [node name="Camera3D" type="Camera3D" parent="Camera_Controller/Camera_Target"]
-transform = Transform3D(1, 0, 0, 0, 0.995076, -0.0991113, 0, 0.0991113, 0.995076, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.990268, 0.139173, 0, -0.139173, 0.990268, 0, 0, 0)
 current = true
 
 [node name="BlockSound" type="AudioStreamPlayer3D" parent="."]
