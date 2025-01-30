@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://sst3dhmga701"]
+
+[ext_resource type="Script" path="res://shelve_book_location.gd" id="1_ulcs4"]
+[ext_resource type="Texture2D" uid="uid://dxuk3gtje7bv1" path="res://assets/textures/cobblestone.jpg" id="2_xeht2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gst2p"]
+size = Vector3(0.25, 1, 0.25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1r1mn"]
+albedo_texture = ExtResource("2_xeht2")
+
+[sub_resource type="BoxMesh" id="BoxMesh_qau4b"]
+material = SubResource("StandardMaterial3D_1r1mn")
+size = Vector3(0.25, 1, 0.25)
+
+[node name="shelving_location" type="Node3D"]
+script = ExtResource("1_ulcs4")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_gst2p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+mesh = SubResource("BoxMesh_qau4b")

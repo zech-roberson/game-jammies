@@ -5,7 +5,7 @@ script/source = "extends Node3D
 
 # put scenes you want added to your floor here
 # shelf is 4x2.5x.5
-var shelf_scene = preload(\"res://blender_assets/bookshelf_3m.blend\")
+var shelf_scene = preload(\"res://assets/models/bookshelf_3m.tscn\")
 var basic_floor = preload(\"res://blender_assets/hospital_floor.blend\")
 
 # hardcoding the size of the floors to 50x50 meters,
