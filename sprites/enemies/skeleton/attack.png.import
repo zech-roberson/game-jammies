@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ce8to3x3ib2ne"
-path.s3tc="res://.godot/imported/skeleton frams.png-c39fd950e2d5bbc8ac64095c14193ab5.s3tc.ctex"
+uid="uid://ci4h5f5h04oyr"
+path.s3tc="res://.godot/imported/attack.png-207d24b8735401f187c9f68a9da3ec24.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://sprites/enemies/skeleton/skeleton frams.png"
-dest_files=["res://.godot/imported/skeleton frams.png-c39fd950e2d5bbc8ac64095c14193ab5.s3tc.ctex"]
+source_file="res://sprites/enemies/skeleton/attack.png"
+dest_files=["res://.godot/imported/attack.png-207d24b8735401f187c9f68a9da3ec24.s3tc.ctex"]
 
 [params]
 

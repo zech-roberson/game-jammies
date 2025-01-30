@@ -11,5 +11,4 @@ script = ExtResource("1_ymg7j")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = ExtResource("2_e313d")
-animation = &"player_attack"
-frame_progress = 0.323883
+animation = &"player_dodge_right"

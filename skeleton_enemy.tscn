@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjgvfsdw2qlrj"]
+
+[ext_resource type="SpriteFrames" uid="uid://cgulnxd13klri" path="res://skeleton_enemy.tres" id="1_thuts"]
+
+[node name="skeleton_enemy" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_thuts")
+animation = &"attack_left"
+frame = 1
+frame_progress = 0.882616

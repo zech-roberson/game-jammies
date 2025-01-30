@@ -26,7 +26,6 @@ func _ready() -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(Global.floor_number)
 	match Global.floor_number:
 		1: 
 			$Panel/Control/BooksCount.text = str(Global.books_left_to_shelve_floor_1 - Global.books_shelved)
@@ -56,12 +55,12 @@ func _process(delta: float) -> void:
 	
 	##Show the empty heart containers and hide the full ones, if taking damage, from right to left
 	if hearts_list.size() > Global.player_health && Global.is_hurting:
-		var difference_in_health = Global.player_health - hearts_list.size()
-		
+		print("in hearts decrement")
+		var difference_in_health = hearts_list.size() - Global.player_health
+		print("diff in health", difference_in_health)
 		for i in range(hearts_list.size()):
 			if difference_in_health > 0:
-				hearts_list[hearts_list.size() - (i+1)].get_child(0).show()
-				hearts_list[hearts_list.size() - (i+1)].get_child(1).hide()
+				hearts_list[hearts_list.size() - (i+1)].hide()
 			difference_in_health -= 1
 	##Show the full heart containers and hide the empty ones, if healing, from left to right
 	elif hearts_list.size() > Global.player_health && Global.is_healing:
@@ -69,8 +68,7 @@ func _process(delta: float) -> void:
 		
 		for i in range(hearts_list.size()):
 			if difference_in_health > 0:
-				hearts_list[hearts_list.size() - (i+difference_in_health)].get_child(0).hide()
-				hearts_list[hearts_list.size() - (i+difference_in_health)].get_child(1).show()
+				hearts_list[hearts_list.size() - (i+difference_in_health)].show()
 			difference_in_health -= 1
 	elif hearts_list.size() < Global.player_health:
 		for i in range(hearts_list.size()):

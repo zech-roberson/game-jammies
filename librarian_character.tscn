@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b5nn50q3rvupo"]
 
-[ext_resource type="SpriteFrames" uid="uid://clhfhyc5ns5up" path="res://librarian.tres" id="1_8vacv"]
+[ext_resource type="SpriteFrames" uid="uid://7t51ug32n2rn" path="res://librarian.tres" id="1_8vacv"]
 [ext_resource type="Script" path="res://librarian_character.gd" id="1_jpu70"]
 [ext_resource type="PackedScene" uid="uid://dgjx24mcy8s4c" path="res://scene_trigger.tscn" id="3_627ox"]
 
@@ -14,7 +14,7 @@ radius = 1.40739
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 script = ExtResource("1_jpu70")
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+[node name="librarian" type="AnimatedSprite3D" parent="."]
 sprite_frames = ExtResource("1_8vacv")
 animation = &"good_walking_right"
 
@@ -26,3 +26,6 @@ shape = SubResource("BoxShape3D_rrmf2")
 
 [node name="Talk_range" type="CollisionShape3D" parent="TriggerZone"]
 shape = SubResource("SphereShape3D_af1bg")
+
+[connection signal="body_entered" from="TriggerZone" to="." method="_on_trigger_zone_body_entered"]
+[connection signal="body_exited" from="TriggerZone" to="." method="_on_trigger_zone_body_exited"]

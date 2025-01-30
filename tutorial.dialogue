@@ -11,5 +11,6 @@ Librarian: Oh, I’m so glad someone finally picked that up, I appreciate you be
 Librarian: Book carts are located right here by the administrative desk on each floor. \nI’ve already taken the returned books and organized them on each floor of the library, \nso you don’t have to worry about bringing these books to other floors. \nGo ahead sweetie, pick up a book.
 Game: Press E to interact with the book cart. The book’s outline should indicate where the book goes on this floor, put colors with their matching pair.
 Librarian: You’re a natural! Once you’re done with this floor, you may take the elevator to another floor and continue shelving the books on that floor. \nDon’t worry about visiting the basement today, the books that go down there won't be read again.
+do Global.has_met_librarian = true
 Librarian: Oh! Look at the time, I’m about to be late for a meeting! Please continue working, and I will be back later to check on your progress.
 => END

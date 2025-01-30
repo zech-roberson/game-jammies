@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://do7nbo7wh30mw"]
 
 [ext_resource type="Script" path="res://librarian.gd" id="1_cu0e0"]
-[ext_resource type="SpriteFrames" uid="uid://clhfhyc5ns5up" path="res://librarian.tres" id="2_tl54u"]
+[ext_resource type="SpriteFrames" uid="uid://7t51ug32n2rn" path="res://librarian.tres" id="2_tl54u"]
 
 [node name="Librarian" type="Node2D"]
 script = ExtResource("1_cu0e0")
@@ -10,5 +10,6 @@ script = ExtResource("1_cu0e0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_tl54u")
-animation = &"good_walking_left"
-frame_progress = 0.46276
+animation = &"attack"
+frame = 13
+frame_progress = 0.890579

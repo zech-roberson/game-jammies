@@ -1,0 +1,18 @@
+~ final_confrontation
+- Alice? You're behind all this?
+	Alice: Oh, my dear, the rabbit hole goes so much deeper than you think. 
+	- So, all these attacks, these enemies, that was all you?
+		Alice: Oh no, I don't control them. They all have their own autonomy. 
+		- Including you?
+			Alice: Of course, why would I not? As for you. You should be choosing to run.
+			Alice: Run along, NOW DEAR.
+			Alice?: RUN 
+			=> END
+			do Global.boss_battle_started = true
+	- I'm not afraid of you.
+		Alice: You should be, Dear.
+		Alice: YOU
+		Alice?: SHOULD
+		ALICE?: BEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+		do Global.boss_battle_started = true
+=> END

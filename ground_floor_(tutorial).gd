@@ -16,6 +16,14 @@ var rug_floor = preload("res://blender_assets/rug_floor.blend")
 var rowNum = -25
 var colNum = -25
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("esc"):
+		togglePause()
+		
+func togglePause():
+	var tree = get_tree()
+	tree.paused = !tree.paused
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.floor_number = Global.FLOORS.FIRST

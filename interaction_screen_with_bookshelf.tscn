@@ -13,6 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 882.0
 offset_top = 521.0
 offset_right = 1030.0
@@ -20,6 +21,7 @@ offset_bottom = 557.0
 color = Color(0, 0, 0, 0.341176)
 
 [node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
 offset_left = 6.0
 offset_top = 3.0
 offset_right = 136.0
@@ -32,6 +34,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 881.0
 offset_top = 566.0
 offset_right = 1029.0
@@ -39,6 +42,7 @@ offset_bottom = 602.0
 color = Color(0, 0, 0, 0.341176)
 
 [node name="Label" type="Label" parent="ColorRect2"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 3.0
 offset_right = 138.0

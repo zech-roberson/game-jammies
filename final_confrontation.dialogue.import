@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://b4mb0ffhmoc7w"
+path="res://.godot/imported/final_confrontation.dialogue-8cd4a626b49a27ed9e5c87e65468b9b1.tres"
+
+[deps]
+
+source_file="res://final_confrontation.dialogue"
+dest_files=["res://.godot/imported/final_confrontation.dialogue-8cd4a626b49a27ed9e5c87e65468b9b1.tres"]
+
+[params]
+
+defaults=true

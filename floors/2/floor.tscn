@@ -1,4 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://db7bh4o7800m4"]
+[gd_scene load_steps=8 format=3 uid="uid://db7bh4o7800m4"]
+
+[ext_resource type="PackedScene" uid="uid://bq30a2ioowtop" path="res://base_character.tscn" id="1_s7yy5"]
+[ext_resource type="PackedScene" uid="uid://cpxhako1m6p7c" path="res://book_cart.tscn" id="2_lvsel"]
+[ext_resource type="PackedScene" uid="uid://nmo68shnomyg" path="res://interaction_screen.tscn" id="3_fhtks"]
+[ext_resource type="PackedScene" uid="uid://c0b40e0mjtfw0" path="res://interaction_screen_with_bookshelf.tscn" id="4_5pc5a"]
+[ext_resource type="PackedScene" uid="uid://c0cfudvcyyy8v" path="res://skeleton.tscn" id="5_1enc2"]
+[ext_resource type="PackedScene" uid="uid://dgd2o4kb0fjvf" path="res://hud.tscn" id="6_toqov"]
 
 [sub_resource type="GDScript" id="GDScript_y80um"]
 script/source = "extends StaticBody3D
@@ -18,8 +25,13 @@ var ceiling_walls_floor = preload(\"res://floors/wall_ceiling_lights.tscn\")
 var rowNum = -25
 var colNum = -25
 
+@onready var interactScreen = $InteractionLayer/InteractionScreen
+@onready var interactSrceenWithBookshelf = $InteractionLayer/InteractionScreenWithBookshelf
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.floor_number = Global.FLOORS.SECOND
+	
 	print(\"Loading flooring.\\n\")
 	# make a text file of 50 columns and 50 rows representing the
 	#	floor layout. See floor.txt for example
@@ -126,6 +138,22 @@ func _process(delta: float) -> void:
 	var rot = camera.get_rotation_degrees()
 	camera.set_rotation_degrees(Vector3(-90,90,0))
 	camera.set_global_position(Vector3(0,40,0))
+	
+	if Global.interactable_object_in_range == Global.INTERACTABLE.CART:
+		interactScreen.show()
+		if Input.is_action_just_pressed(\"ui_interact\"):
+			Global.books_left_to_shelve_floor_1 -= 1
+			Global.is_holding_book = true
+	elif Global.interactable_object_in_range == Global.INTERACTABLE.ELEVATOR && Global.books_shelved == 10:
+		interactScreen.show()
+	elif Global.interactable_object_in_range == Global.INTERACTABLE.SHELF:
+		interactSrceenWithBookshelf.show()
+		if Input.is_action_just_pressed(\"ui_interact\") || Input.is_action_just_pressed(\"power_up\"):
+			Global.is_holding_book = false
+			Global.books_shelved += 1
+	else:
+		interactScreen.hide()
+		interactSrceenWithBookshelf.hide()
 "
 
 [node name="2" type="StaticBody3D"]
@@ -139,3 +167,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 light_color = Color(1, 1, 0.878431, 1)
 omni_range = 30.0
 omni_attenuation = 0.0
+
+[node name="Base Character" parent="." instance=ExtResource("1_s7yy5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.109, 1.19598, 22.1502)
+axis_lock_linear_y = true
+
+[node name="Book Cart" parent="." instance=ExtResource("2_lvsel")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.069, 0.5, 21.6316)
+
+[node name="InteractionLayer" type="CanvasLayer" parent="."]
+
+[node name="InteractionScreen" parent="InteractionLayer" instance=ExtResource("3_fhtks")]
+visible = false
+
+[node name="InteractionScreenWithBookshelf" parent="InteractionLayer" instance=ExtResource("4_5pc5a")]
+visible = false
+
+[node name="skeleton" parent="." instance=ExtResource("5_1enc2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.620492, 14.061)
+slide_on_ceiling = false
+
+[node name="HUD" parent="." instance=ExtResource("6_toqov")]

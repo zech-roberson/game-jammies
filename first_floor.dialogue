@@ -24,4 +24,5 @@ Dewy: The Librarian!
 			Dewy: First rule, don't ask me too many questions. It gives me a headache. \nSpeakin' of which, I'm gonna do you the favor and get outta your hair before that happens. See ya 'round! => END
 	- Alright, I won't rat you out.
 		Dewy: I'm a raccoon, not a rat, but you got the spirit! Gotta split, kid. See ya around.
+do Global.has_met_dewy = true
 => END

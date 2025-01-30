@@ -1,4 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dglbqbfpan7m2"]
+[gd_scene load_steps=7 format=3 uid="uid://dglbqbfpan7m2"]
+
+[ext_resource type="PackedScene" uid="uid://bq30a2ioowtop" path="res://base_character.tscn" id="1_f8o1m"]
+[ext_resource type="PackedScene" uid="uid://nmo68shnomyg" path="res://interaction_screen.tscn" id="2_n3fof"]
+[ext_resource type="PackedScene" uid="uid://c0b40e0mjtfw0" path="res://interaction_screen_with_bookshelf.tscn" id="3_okhnl"]
+[ext_resource type="PackedScene" uid="uid://dgd2o4kb0fjvf" path="res://hud.tscn" id="4_saepb"]
+[ext_resource type="PackedScene" uid="uid://b5nn50q3rvupo" path="res://librarian_character.tscn" id="5_70fqi"]
 
 [sub_resource type="GDScript" id="GDScript_y80um"]
 script/source = "extends Node3D
@@ -16,8 +22,23 @@ var ceiling_walls_floor = preload(\"res://floors/wall_ceiling_lights.tscn\")
 var rowNum = -25
 var colNum = -25
 
+@onready var player = $\"Base Character\"
+@onready var librarian = $\"Librarian Character\"
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.floor_number = Global.FLOORS.TWELFTH
+	
+	##jank workaround to get the final dialogue and boss battle for testing purposes
+	if !Global.has_met_librarian && !Global.has_met_dewy:
+		Global.has_met_librarian = !Global.has_met_librarian
+		Global.has_met_dewy = !Global.has_met_dewy
+		Global.librarian_is_antagonist = true
+		Global.librarian_is_sick = true
+		
+	#if librarian.librarian_attack:
+		#Global.is_hurting
+	
 	print(\"Loading flooring.\\n\")
 	# make a text file of 50 columns and 50 rows representing the
 	#	floor layout. See floor.txt for example
@@ -117,6 +138,11 @@ func _process(delta: float) -> void:
 	var rot = camera.get_rotation_degrees()
 	camera.set_rotation_degrees(Vector3(0,0,0))
 	camera.set_global_position(Vector3(0,2,0))
+	
+	
+	
+	if Global.boss_battle_started:
+		librarian.position = lerp(player.position, librarian.position, delta * .1)
 "
 
 [node name="12" type="StaticBody3D"]
@@ -130,3 +156,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 light_color = Color(1, 1, 0.878431, 1)
 omni_range = 30.0
 omni_attenuation = 0.0
+
+[node name="Base Character" parent="." instance=ExtResource("1_f8o1m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.109, 1.19598, 22.1502)
+axis_lock_linear_y = true
+
+[node name="InteractionLayer" type="CanvasLayer" parent="."]
+
+[node name="InteractionScreen" parent="InteractionLayer" instance=ExtResource("2_n3fof")]
+visible = false
+
+[node name="InteractionScreenWithBookshelf" parent="InteractionLayer" instance=ExtResource("3_okhnl")]
+visible = false
+
+[node name="HUD" parent="." instance=ExtResource("4_saepb")]
+
+[node name="Librarian Character" parent="." instance=ExtResource("5_70fqi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)

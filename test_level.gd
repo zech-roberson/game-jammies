@@ -16,9 +16,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Global.Books = 0
-	librarian.play("good_walking_left")
-	get_tree().paused = false
+	pass
+	#Global.Books = 0
+	#librarian.play("good_walking_left")
+	#get_tree().paused = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

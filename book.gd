@@ -14,7 +14,6 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	Global.Books += 1
-	print(Global.Books)
 	if Global.Books >= Global.NUM_BOOKS_TO_WIN:
 		get_tree().change_scene_to_file("res://node_2d.tscn")
 	queue_free()

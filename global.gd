@@ -9,6 +9,13 @@ var has_met_dewy := false
 var is_holding_book := false
 var is_hurting := false
 var is_healing := false
+var is_player_attacking := false
+var is_enemy_attacking := false
+var librarian_is_sick := false
+var librarian_is_antagonist := false
+var player_facing_left := false
+var is_player_dead := false
+var boss_battle_started := false
 
 var books_left_to_shelve_floor_1 := 10
 var books_left_to_shelve_floor_2 := 10
@@ -24,7 +31,7 @@ var books_left_to_shelve_floor_11 := 10
 var books_left_to_shelve_floor_12 := 10
 var books_shelved := 0
 
-var player_health := 3
+var player_health := 5
 var player_max_health := 40
 var player_attack_power := 1
 var player_shield_strength := 1
