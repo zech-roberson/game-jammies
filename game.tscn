@@ -1,9 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://caklubsnewtmf"]
+[gd_scene load_steps=15 format=3 uid="uid://caklubsnewtmf"]
 
 [ext_resource type="Script" path="res://game_manager.gd" id="1_am5w3"]
 [ext_resource type="PackedScene" uid="uid://ncyrelg6u7f4" path="res://text_level.tscn" id="1_eq2hw"]
 [ext_resource type="PackedScene" uid="uid://bpcnwbg21pyyj" path="res://pause_menu.tscn" id="2_0qs3l"]
 [ext_resource type="PackedScene" uid="uid://cqq08mecj8q3x" path="res://ground_floor_(tutorial).tscn" id="3_00yyc"]
+[ext_resource type="PackedScene" uid="uid://dglbqbfpan7m2" path="res://floors/11/floor.tscn" id="4_fgf2a"]
+[ext_resource type="PackedScene" uid="uid://dglbqbfpan7m2" path="res://floors/10/floor.tscn" id="5_82bt2"]
+[ext_resource type="PackedScene" uid="uid://bgj6oh5oi54co" path="res://floors/9/floor.tscn" id="6_000fg"]
+[ext_resource type="PackedScene" uid="uid://cqdymujs3ff1e" path="res://floors/8/floor.tscn" id="7_4g6ug"]
+[ext_resource type="PackedScene" uid="uid://pa01orxcy3su" path="res://floors/7/floor.tscn" id="8_36htw"]
+[ext_resource type="PackedScene" uid="uid://cjoqg6ifqsoq4" path="res://floors/6/floor.tscn" id="9_0hvfx"]
+[ext_resource type="PackedScene" uid="uid://cjoqg6ifqsoq4" path="res://floors/5/floor.tscn" id="10_stqs1"]
+[ext_resource type="PackedScene" uid="uid://cjoqg6ifqsoq4" path="res://floors/4/floor.tscn" id="11_3iupd"]
+[ext_resource type="PackedScene" uid="uid://cjoqg6ifqsoq4" path="res://floors/3/floor.tscn" id="12_qwfo2"]
+[ext_resource type="PackedScene" uid="uid://db7bh4o7800m4" path="res://floors/2/floor.tscn" id="13_8fu7t"]
 
 [node name="GameManager" type="Node"]
 process_mode = 3
@@ -19,3 +29,23 @@ script = ExtResource("1_am5w3")
 offset_right = -3.0
 offset_bottom = 2.0
 game_manager = NodePath("../..")
+
+[node name="11" parent="." instance=ExtResource("4_fgf2a")]
+
+[node name="10" parent="." instance=ExtResource("5_82bt2")]
+
+[node name="9" parent="." instance=ExtResource("6_000fg")]
+
+[node name="8" parent="." instance=ExtResource("7_4g6ug")]
+
+[node name="7" parent="." instance=ExtResource("8_36htw")]
+
+[node name="6" parent="." instance=ExtResource("9_0hvfx")]
+
+[node name="5" parent="." instance=ExtResource("10_stqs1")]
+
+[node name="4" parent="." instance=ExtResource("11_3iupd")]
+
+[node name="3" parent="." instance=ExtResource("12_qwfo2")]
+
+[node name="2" parent="." instance=ExtResource("13_8fu7t")]

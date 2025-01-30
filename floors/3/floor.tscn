@@ -9,6 +9,8 @@ var shelf_scene = preload(\"res://assets/models/bookshelf_3m.tscn\")
 var table_scene = preload(\"res://blender_assets/table.blend\")
 var dirt_floor = preload(\"res://blender_assets/dirt_floor.blend\")
 var cobble_floor = preload(\"res://blender_assets/cobble_floor.blend\")
+var shiny_ceiling = preload(\"res://blender_assets/shiny_ceiling.blend\")
+var ceiling_walls_floor = preload(\"res://floors/wall_ceiling_lights.tscn\")
 
 # hardcoding the size of the floors to 50x50 meters,
 #	25 meters left of the origin, 25 right of the origin
@@ -29,6 +31,8 @@ func _ready() -> void:
 	var item_placement_rot = 0
 	var floor_rot = [0, 90, 180, 270]
 	var item_size = Vector3(1,1,1)
+	
+	add_child(ceiling_walls_floor.instantiate())
 	
 	while layoutFile.get_position() < layoutFile.get_length():
 		row = layoutFile.get_line()
@@ -95,10 +99,21 @@ func _ready() -> void:
 		colNum = -25
 		rowNum += 1
 	rowNum = -25
-	#print(\"Loading lighting.\")
-	#for x in range(rowNum, -rowNum):
-	#	for y in range(colNum, -colNum):
-	#		
+	print(\"Loading ceiling tiles.\")
+	item_placement_y = 3
+	item_placement_rot = 180
+	for x in range(rowNum, -rowNum):
+		for y in range(colNum, -colNum):
+			item = shiny_ceiling.instantiate()
+			if (item):
+				add_child(item)
+				item.set_global_position(Vector3(colNum,item_placement_y,rowNum))
+				item.set_rotation_degrees(Vector3(item_placement_rot,0,0))
+				item = null
+			colNum += 1
+		colNum = -25
+		rowNum += 1
+	rowNum = -25
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # I just put this here so I have a camera to see my work.
