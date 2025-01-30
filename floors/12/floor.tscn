@@ -6,9 +6,9 @@ script/source = "extends Node3D
 # put scenes you want added to your floor here
 # shelf is 4x2.5x.5
 var shelf_scene = preload(\"res://assets/models/bookshelf_3m.tscn\")
-var basic_floor = preload(\"res://blender_assets/hospital_floor.blend\")
-var shiny_ceiling = preload(\"res://blender_assets/shiny_ceiling.blend\")
-var computer_scene = preload(\"res://blender_assets/computer.blend\")
+var red_carpet = preload(\"res://blender_assets/red_carpet.blend\")
+var wood_floor = preload(\"res://blender_assets/wood_floor.blend\")
+var dark_floor = preload(\"res://blender_assets/dark_floor.blend\")
 var ceiling_walls_floor = preload(\"res://floors/wall_ceiling_lights.tscn\")
 
 # hardcoding the size of the floors to 50x50 meters,
@@ -21,7 +21,7 @@ func _ready() -> void:
 	print(\"Loading flooring.\\n\")
 	# make a text file of 50 columns and 50 rows representing the
 	#	floor layout. See floor.txt for example
-	var layoutFile = FileAccess.open(\"res://floors/10/floor.txt\", FileAccess.READ)
+	var layoutFile = FileAccess.open(\"res://floors/12/floor.txt\", FileAccess.READ)
 	var rando = RandomNumberGenerator.new()
 	var row = null
 	var floor = null
@@ -39,7 +39,9 @@ func _ready() -> void:
 			# like a switch statement in C++
 			match tile:
 				\".\":
-					floor = basic_floor.instantiate()
+					floor = dark_floor.instantiate()
+				\"r\":
+					floor = red_carpet.instantiate()
 				# add whatever else you want automatically added to the floor
 				#	here
 			if (floor):
@@ -54,7 +56,7 @@ func _ready() -> void:
 		rowNum += 1
 	rowNum = -25
 	print(\"Loading floor items.\\n\")
-	layoutFile = FileAccess.open(\"res://floors/10/layout.txt\", FileAccess.READ)
+	layoutFile = FileAccess.open(\"res://floors/12/layout.txt\", FileAccess.READ)
 	while layoutFile.get_position() < layoutFile.get_length():
 		row = layoutFile.get_line()
 		for tile in row:
@@ -72,10 +74,6 @@ func _ready() -> void:
 					item = shelf_scene.instantiate()
 					item_placement_y = 1.25
 					item_placement_rot = 90
-				\"c\":
-					item = computer_scene.instantiate()
-					item_placement_y = 1
-					item_placement_rot = -90
 			if (item):
 				add_child(item)
 				# prolly should just divide height of item and assign
@@ -96,11 +94,12 @@ func _ready() -> void:
 		rowNum += 1
 	rowNum = -25
 	print(\"Loading ceiling tiles.\")
-	item_placement_y = 3
+	item_placement_y = 10
 	item_placement_rot = 180
 	for x in range(rowNum, -rowNum):
 		for y in range(colNum, -colNum):
-			item = shiny_ceiling.instantiate()
+			# using wood floor as a wood ceiling cuz I can
+			item = wood_floor.instantiate()
 			if (item):
 				add_child(item)
 				item.set_global_position(Vector3(colNum,item_placement_y,rowNum))
@@ -117,10 +116,10 @@ func _process(delta: float) -> void:
 	var camera = find_child(\"Camera3D\")
 	var rot = camera.get_rotation_degrees()
 	camera.set_rotation_degrees(Vector3(0,0,0))
-	camera.set_global_position(Vector3(0,2,25))
+	camera.set_global_position(Vector3(0,2,0))
 "
 
-[node name="10" type="StaticBody3D"]
+[node name="12" type="StaticBody3D"]
 script = SubResource("GDScript_y80um")
 
 [node name="Camera3D" type="Camera3D" parent="."]
