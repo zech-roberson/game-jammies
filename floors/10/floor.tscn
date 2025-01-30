@@ -8,6 +8,7 @@ script/source = "extends Node3D
 var shelf_scene = preload(\"res://assets/models/bookshelf_3m.tscn\")
 var basic_floor = preload(\"res://blender_assets/hospital_floor.blend\")
 var shiny_ceiling = preload(\"res://blender_assets/shiny_ceiling.blend\")
+var computer_scene = preload(\"res://blender_assets/computer.blend\")
 var ceiling_walls_floor = preload(\"res://floors/wall_ceiling_lights.tscn\")
 
 # hardcoding the size of the floors to 50x50 meters,
@@ -71,6 +72,10 @@ func _ready() -> void:
 					item = shelf_scene.instantiate()
 					item_placement_y = 1.25
 					item_placement_rot = 90
+				\"c\":
+					item = computer_scene.instantiate()
+					item_placement_y = 1
+					item_placement_rot = -90
 			if (item):
 				add_child(item)
 				# prolly should just divide height of item and assign
@@ -111,8 +116,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var camera = find_child(\"Camera3D\")
 	var rot = camera.get_rotation_degrees()
-	camera.set_rotation_degrees(Vector3(-90,90,0))
-	camera.set_global_position(Vector3(0,40,0))
+	camera.set_rotation_degrees(Vector3(0,0,0))
+	camera.set_global_position(Vector3(0,2,25))
 "
 
 [node name="10" type="StaticBody3D"]
