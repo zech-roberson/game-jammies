@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://5t8rsmlpre3o"]
+[gd_scene load_steps=20 format=3 uid="uid://5t8rsmlpre3o"]
 
 [ext_resource type="Script" path="res://elevator_sprite.gd" id="1_ak2xt"]
 [ext_resource type="Texture2D" uid="uid://c3e02xk75o2ba" path="res://sprites/Elevator/Grid.png" id="1_j312o"]
+[ext_resource type="PackedScene" uid="uid://dgjx24mcy8s4c" path="res://scene_trigger.tscn" id="3_8n4v1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_330wl"]
 atlas = ExtResource("1_j312o")
@@ -114,9 +115,21 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_cr5je"]
+radius = 1.0
+
 [node name="Elevator_Sprite" type="Node3D"]
 script = ExtResource("1_ak2xt")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+pixel_size = 0.005
 sprite_frames = SubResource("SpriteFrames_ma3kf")
 animation = &"close"
+
+[node name="TriggerZone" parent="." instance=ExtResource("3_8n4v1")]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="TriggerZone"]
+shape = SubResource("SphereShape3D_cr5je")
+
+[connection signal="body_entered" from="TriggerZone" to="." method="_on_trigger_zone_2_body_entered"]
+[connection signal="body_exited" from="TriggerZone" to="." method="_on_trigger_zone_2_body_exited"]

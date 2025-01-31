@@ -1,24 +1,25 @@
 [gd_scene load_steps=6 format=3 uid="uid://cmxkbyqu12adt"]
 
-[ext_resource type="SpriteFrames" uid="uid://k6per8p0i0mv" path="res://dewy_sprite.tres" id="1_cna3b"]
+[ext_resource type="SpriteFrames" uid="uid://bmg0jyq72al" path="res://dewy_sprite.tres" id="1_cna3b"]
 [ext_resource type="Script" path="res://dewy_decimal.gd" id="1_nxhmb"]
 [ext_resource type="PackedScene" uid="uid://dgjx24mcy8s4c" path="res://scene_trigger.tscn" id="3_88wpc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kudot"]
-size = Vector3(2.02588, 1.631, 0.191925)
+size = Vector3(0.8, 0.5, 0.075)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_q03lo"]
-radius = 1.87972
+radius = 1.0
 
 [node name="StaticBody3D" type="StaticBody3D"]
 script = ExtResource("1_nxhmb")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+pixel_size = 0.004
 billboard = 2
 sprite_frames = ExtResource("1_cna3b")
+frame_progress = 0.887225
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0505371, -0.00678253, 0.0188751)
 shape = SubResource("BoxShape3D_kudot")
 
 [node name="TriggerZone" parent="." instance=ExtResource("3_88wpc")]

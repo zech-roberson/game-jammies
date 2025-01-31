@@ -2,22 +2,22 @@
 
 [ext_resource type="Texture2D" uid="uid://d3nrxyxsjkeje" path="res://sprites/Dewy.png" id="1_yp0on"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_57l2k"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_33jdh"]
 atlas = ExtResource("1_yp0on")
-region = Rect2(0, 0, 192, 192)
+region = Rect2(0, 0, 186, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jheam"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_byxai"]
 atlas = ExtResource("1_yp0on")
-region = Rect2(0, 192, 192, 192)
+region = Rect2(0, 160, 186, 160)
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_57l2k")
+"texture": SubResource("AtlasTexture_33jdh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jheam")
+"texture": SubResource("AtlasTexture_byxai")
 }],
 "loop": true,
 "name": &"default",

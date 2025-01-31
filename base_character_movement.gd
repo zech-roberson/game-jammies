@@ -29,16 +29,27 @@ func _physics_process(delta: float) -> void:
 			velocity += get_gravity() * delta
 	
 		##Determine which dialogue to give player in Tutorial
-		if Global.talking_npc_in_range != Global.NPC.NONE:
-			if Input.is_action_just_pressed("ui_interact"):
+		if Input.is_action_just_pressed("ui_interact"):
+			if Global.talking_npc_in_range != Global.NPC.NONE:
+				# dialog options
 				if !Global.has_met_librarian && Global.talking_npc_in_range == Global.NPC.LIBRARIAN:
 					DialogueManager.show_example_dialogue_balloon(load("res://tutorial.dialogue"))
 				elif !Global.has_met_dewy && Global.has_met_librarian && Global.talking_npc_in_range == Global.NPC.DEWY && Global.is_holding_book:
 					DialogueManager.show_example_dialogue_balloon(load("res://first_floor.dialogue"))
 				elif Global.books_shelved == 10 && Global.has_met_dewy && Global.talking_npc_in_range == Global.NPC.LIBRARIAN:
-					DialogueManager.show_example_dialogue_balloon(load("res://alice_second_encounter.dialogue"))
-				elif Global.has_met_librarian && Global.has_met_dewy && Global.talking_npc_in_range == Global.NPC.LIBRARIAN:
-					DialogueManager.show_example_dialogue_balloon(load("res://final_confrontation.dialogue"))
+					DialogueManager.show_example_dialogue_balloon(load("res://tutorial_second_talk.dialogue"))
+				elif Global.current_floor_num == 12 && Global.talking_npc_in_range == Global.NPC.LIBRARIAN:
+					DialogueManager.show_example_dialogue_balloon(load("res://final_confrontation_kinda.dialogue"))
+			if Global.interactable_object_in_range != Global.INTERACTABLE.NONE:
+				if Global.interactable_object_in_range == Global.INTERACTABLE.SHELF && Global.is_holding_book:
+					Global.books_shelved += 1
+					Global.books_left_to_shelve -= 1
+					Global.is_holding_book = false
+				elif Global.interactable_object_in_range == Global.INTERACTABLE.CART && Global.books_left_to_shelve != 0 && Global.is_holding_book != true:
+					Global.is_holding_book = true
+				elif Global.interactable_object_in_range == Global.INTERACTABLE.ELEVATOR && Global.floor_done:
+					Global.next_floor += 1
+					
 
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
@@ -210,9 +221,6 @@ func _on_trigger_zone_body_entered(body: Node3D) -> void:
 				Global.talking_npc_in_range = Global.NPC.DEWY
 		elif body.has_method("isEnemy"):
 			Global.enemy_in_range = Global.ENEMY.SKELETON
-		elif body.has_method("isBookshelf"):
-			print("books in range")
-			Global.interactable_object_in_range = Global.INTERACTABLE.SHELF
 
 
 func _on_trigger_zone_body_exited(body: Node3D) -> void:
@@ -224,24 +232,6 @@ func _on_trigger_zone_body_exited(body: Node3D) -> void:
 				Global.talking_npc_in_range = Global.NPC.NONE
 		elif body.has_method("isEnemy"):
 			Global.enemy_in_range = Global.ENEMY.NONE
-		elif body.has_method("isBookshelf"):
-			Global.interactable_object_in_range = Global.INTERACTABLE.SHELF
-
-
-func _on_trigger_zone_2_body_entered(body: Node3D) -> void:
-	Global.interactable_object_in_range = Global.INTERACTABLE.ELEVATOR
-
-
-func _on_trigger_zone_2_body_exited(body: Node3D) -> void:
-	Global.interactable_object_in_range = Global.INTERACTABLE.NONE
-
-
-func _on_book_cart_zone_body_entered(body: Node3D) -> void:
-	Global.interactable_object_in_range = Global.INTERACTABLE.CART
-
-
-func _on_book_cart_zone_body_exited(body: Node3D) -> void:
-	Global.interactable_object_in_range = Global.INTERACTABLE.NONE
 	
 func is_player():
 	pass

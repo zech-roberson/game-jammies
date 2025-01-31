@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=39 format=3 uid="uid://cgulnxd13klri"]
+[gd_resource type="SpriteFrames" load_steps=39 format=3 uid="uid://cwxct1npps8nj"]
 
 [ext_resource type="Texture2D" uid="uid://ci4h5f5h04oyr" path="res://sprites/enemies/skeleton/attack.png" id="1_hoaiy"]
 [ext_resource type="Texture2D" uid="uid://ce8to3x3ib2ne" path="res://sprites/enemies/skeleton/skeleton frams.png" id="2_rsqf3"]

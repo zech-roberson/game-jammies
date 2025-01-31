@@ -10,10 +10,10 @@
 [ext_resource type="AudioStream" uid="uid://d32m4cvfucsno" path="res://assets/sounds/dodge_spoken.mp3" id="7_mewxe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b74d8"]
-size = Vector3(1.31354, 1.74439, 0.467987)
+size = Vector3(1.314, 1.744, 0.075)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_xt0va"]
-radius = 1.58794
+radius = 1.0
 
 [node name="Base Character" type="CharacterBody3D"]
 script = ExtResource("1_og8ke")
@@ -22,6 +22,7 @@ script = ExtResource("1_og8ke")
 pixel_size = 0.007
 texture_filter = 0
 sprite_frames = ExtResource("2_k67ng")
+animation = &"walk_left"
 
 [node name="Player-Condition-Block" type="AnimatedSprite3D" parent="."]
 visible = false
@@ -56,13 +57,13 @@ frame_progress = 0.697379
 
 [node name="Player-Condition-Dead" type="AnimatedSprite3D" parent="."]
 visible = false
+pixel_size = 0.007
 sprite_frames = ExtResource("2_k67ng")
 animation = &"player_dies"
 frame = 6
 frame_progress = 0.909832
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0189514, 0.0709225, -0.00227356)
 shape = SubResource("BoxShape3D_b74d8")
 
 [node name="Camera_Controller" type="Node3D" parent="."]

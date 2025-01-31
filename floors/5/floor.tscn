@@ -1,4 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjoqg6ifqsoq4"]
+[gd_scene load_steps=5 format=3 uid="uid://cjoqg6ifqsoq4"]
+
+[ext_resource type="PackedScene" uid="uid://nmo68shnomyg" path="res://interaction_screen.tscn" id="1_jxudk"]
+[ext_resource type="PackedScene" uid="uid://c0b40e0mjtfw0" path="res://interaction_screen_with_bookshelf.tscn" id="2_t1gt6"]
+[ext_resource type="PackedScene" uid="uid://dgd2o4kb0fjvf" path="res://hud.tscn" id="3_4mp06"]
 
 [sub_resource type="GDScript" id="GDScript_y80um"]
 script/source = "extends Node3D
@@ -10,6 +14,12 @@ var table_scene = preload(\"res://blender_assets/table.blend\")
 var basic_floor = preload(\"res://blender_assets/hospital_floor.blend\")
 var wood_floor = preload(\"res://blender_assets/wood_floor.blend\")
 var shiny_ceiling = preload(\"res://blender_assets/shiny_ceiling.blend\")
+var wall = preload(\"res://blender_assets/wall_bookshelf_back.blend\")
+var player = preload(\"res://base_character.tscn\")
+var dewey = preload(\"res://dewy_decimal.tscn\")
+var librarian = preload(\"res://librarian_character.tscn\")
+var cart = preload(\"res://book_cart.tscn\")
+var elevator = preload(\"res://elevator_sprite.tscn\")
 var ceiling_walls_floor = preload(\"res://floors/wall_ceiling_lights.tscn\")
 
 # hardcoding the size of the floors to 50x50 meters,
@@ -17,8 +27,19 @@ var ceiling_walls_floor = preload(\"res://floors/wall_ceiling_lights.tscn\")
 var rowNum = -25
 var colNum = -25
 
+@onready var interactScreen = $InteractionLayer/InteractionScreen
+@onready var interactSrceenWithBookshelf = $InteractionLayer/InteractionScreenWithBookshelf
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.floor_number = Global.FLOORS.FIFTH
+	
+	Global.books_shelved = 0
+	Global.books_left_to_shelve = 10
+	Global.floor_done = false
+	
+	DialogueManager.show_example_dialogue_balloon(load(\"res://floors/5/floor5_intro.dialogue\"))
+	
 	print(\"Loading flooring.\\n\")
 	# make a text file of 50 columns and 50 rows representing the
 	#	floor layout. See floor.txt for example
@@ -64,6 +85,10 @@ func _ready() -> void:
 			# hardcoded size of the 3m-long bookshelves
 			item_size = Vector3(3, 2.5, 0.5)
 			match tile:
+				\"p\":
+					item = player.instantiate()
+					item_placement_y = 1
+					item_placement_rot = 0
 				\"h\":
 					item = shelf_scene.instantiate()
 					# set this so that your item \"sits\" on the ground,
@@ -79,6 +104,32 @@ func _ready() -> void:
 					item = table_scene.instantiate()
 					item_placement_y = 0.5
 					item_size = Vector3(2,1,2)
+				\"3\":
+					item = wall.instantiate()
+					item_placement_y = 2.5
+					item_placement_rot = 90
+					item_size = Vector3(5, 5, 0.25)
+				\"w\":
+					item = wall.instantiate()
+					item_placement_y = 2.5
+					item_placement_rot = 0
+					item_size = Vector3(5, 5, 0.25)
+				\"b\":
+					item = cart.instantiate()
+					item_placement_y = 0.198
+					item_placement_rot = 0
+				\"d\":
+					item = dewey.instantiate()
+					item_placement_y = .8
+					item_placement_rot = 0
+				\"l\":
+					item = librarian.instantiate()
+					item_placement_y = .75
+					item_placement_rot = 0
+				\"e\":
+					item = elevator.instantiate()
+					item_placement_y = 1
+					item_placement_rot = 0
 			if (item):
 				add_child(item)
 				# prolly should just divide height of item and assign
@@ -99,7 +150,7 @@ func _ready() -> void:
 		rowNum += 1
 	rowNum = -25
 	print(\"Loading ceiling tiles.\")
-	item_placement_y = 3
+	item_placement_y = 5
 	item_placement_rot = 180
 	for x in range(rowNum, -rowNum):
 		for y in range(colNum, -colNum):
@@ -117,20 +168,28 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # I just put this here so I have a camera to see my work.
 func _process(delta: float) -> void:
-	var camera = find_child(\"Camera3D\")
-	var rot = camera.get_rotation_degrees()
-	camera.set_rotation_degrees(Vector3(-90,90,0))
-	camera.set_global_position(Vector3(0,40,0))
+	if Global.books_left_to_shelve == 0:
+		Global.floor_done = true
+	if Global.interactable_object_in_range == Global.INTERACTABLE.CART && Global.has_met_librarian:
+		interactScreen.show()
+	elif Global.interactable_object_in_range == Global.INTERACTABLE.ELEVATOR && Global.books_shelved == 10:
+		interactScreen.show()
+	elif Global.interactable_object_in_range == Global.INTERACTABLE.SHELF && Global.is_holding_book:
+		interactSrceenWithBookshelf.show()
+	else:
+		interactScreen.hide()
+		interactSrceenWithBookshelf.hide()
 "
 
 [node name="5" type="StaticBody3D"]
 script = SubResource("GDScript_y80um")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-current = true
+[node name="InteractionLayer" type="CanvasLayer" parent="."]
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-light_color = Color(1, 1, 0.878431, 1)
-omni_range = 30.0
-omni_attenuation = 0.0
+[node name="InteractionScreen" parent="InteractionLayer" instance=ExtResource("1_jxudk")]
+visible = false
+
+[node name="InteractionScreenWithBookshelf" parent="InteractionLayer" instance=ExtResource("2_t1gt6")]
+visible = false
+
+[node name="HUD" parent="." instance=ExtResource("3_4mp06")]

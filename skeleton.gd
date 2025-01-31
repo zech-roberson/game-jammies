@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 		#$Walk_sound.stop() 
 	
 	if has_enterered_range && Global.is_player_attacking && !has_been_attacked:
-		health -= 1	
+		health -= 1
 		has_been_attacked = true
 	
 	if is_on_wall() && !has_enterered_range:

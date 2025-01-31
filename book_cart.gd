@@ -15,3 +15,9 @@ func isInteractable():
 	
 func isBookCart():
 	pass
+
+func _on_book_cart_zone_body_entered(body: Node3D) -> void:
+	Global.interactable_object_in_range = Global.INTERACTABLE.CART
+	
+func _on_book_cart_zone_body_exited(body: Node3D) -> void:
+	Global.interactable_object_in_range = Global.INTERACTABLE.NONE

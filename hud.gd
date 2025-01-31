@@ -26,31 +26,7 @@ func _ready() -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	match Global.floor_number:
-		1: 
-			$Panel/Control/BooksCount.text = str(Global.books_left_to_shelve_floor_1 - Global.books_shelved)
-		2: 
-			$Panel/Control/BooksCount.text = str(Global.books_left_to_shelve_floor_2 - Global.books_shelved)
-		3: 
-			$Panel/Control/BooksCount.text = str(Global.books_left_to_shelve_floor_3 - Global.books_shelved)
-		4: 
-			$Panel/Control/BooksCount.text = str(Global.books_left_to_shelve_floor_4 - Global.books_shelved)
-		5: 
-			$Panel/Control/BooksCount.text = str(Global.books_left_to_shelve_floor_5 - Global.books_shelved)
-		6: 
-			$Panel/Control/BooksCount.text = str(Global.books_left_to_shelve_floor_6 - Global.books_shelved)
-		7: 
-			$Panel/Control/BooksCount.text = str(Global.books_left_to_shelve_floor_7 - Global.books_shelved)
-		8: 
-			$Panel/Control/BooksCount.text = str(Global.books_left_to_shelve_floor_8 - Global.books_shelved)
-		9: 
-			$Panel/Control/BooksCount.text = str(Global.books_left_to_shelve_floor_9 - Global.books_shelved)
-		10: 
-			$Panel/Control/BooksCount.text = str(Global.books_left_to_shelve_floor_10 - Global.books_shelved)
-		11: 
-			$Panel/Control/BooksCount.text = str(Global.books_left_to_shelve_floor_11 - Global.books_shelved)
-		12: 
-			$Panel/Control/BooksCount.text = str(Global.books_left_to_shelve_floor_12 - Global.books_shelved)
+	$Panel/Control/BooksCount.text = str(Global.books_left_to_shelve)
 	# Handle Collision inside the object itself
 	
 	##Show the empty heart containers and hide the full ones, if taking damage, from right to left

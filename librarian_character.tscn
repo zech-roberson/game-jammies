@@ -5,21 +5,20 @@
 [ext_resource type="PackedScene" uid="uid://dgjx24mcy8s4c" path="res://scene_trigger.tscn" id="3_627ox"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rrmf2"]
-size = Vector3(1.13992, 2.62097, 0.13089)
+size = Vector3(0.9, 1.5, 0.075)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_af1bg"]
 radius = 1.40739
 
 [node name="Librarian Character" type="CharacterBody3D"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 script = ExtResource("1_jpu70")
 
 [node name="librarian" type="AnimatedSprite3D" parent="."]
+pixel_size = 0.007
 sprite_frames = ExtResource("1_8vacv")
-animation = &"good_walking_right"
+animation = &"good_walking_right_away"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.232925, -0.0101929, -0.000900269)
 shape = SubResource("BoxShape3D_rrmf2")
 
 [node name="TriggerZone" parent="." instance=ExtResource("3_627ox")]

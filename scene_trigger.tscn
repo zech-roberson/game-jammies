@@ -1,7 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dgjx24mcy8s4c"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0hnpu"]
-size = Vector3(12.5, 12.5, 2)
 
 [node name="TriggerZone" type="Area3D"]
 

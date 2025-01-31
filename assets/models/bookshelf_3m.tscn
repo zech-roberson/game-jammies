@@ -18,6 +18,12 @@ func _process(delta: float) -> void:
 func isInteractable(): pass
 
 func isBookshelf(): pass
+
+func _on_bookshelf_body_entered(body: Node3D) -> void:
+	Global.interactable_object_in_range = Global.INTERACTABLE.SHELF
+
+func _on_bookshelf_body_exited(body: Node3D) -> void:
+	Global.interactable_object_in_range = Global.INTERACTABLE.NONE
 "
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5aqia"]
@@ -27,8 +33,11 @@ size = Vector3(3, 2.5, 1)
 
 [node name="bookshelf_3m" parent="." instance=ExtResource("1_ky8sw")]
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="TriggerZone" type="Area3D" parent="."]
 script = SubResource("GDScript_sq5k6")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZone"]
 shape = SubResource("BoxShape3D_5aqia")
+
+[connection signal="body_entered" from="TriggerZone" to="TriggerZone" method="_on_bookshelf_body_entered"]
+[connection signal="body_exited" from="TriggerZone" to="TriggerZone" method="_on_bookshelf_body_exited"]

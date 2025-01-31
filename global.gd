@@ -17,19 +17,10 @@ var player_facing_left := false
 var is_player_dead := false
 var boss_battle_started := false
 
-var books_left_to_shelve_floor_1 := 10
-var books_left_to_shelve_floor_2 := 10
-var books_left_to_shelve_floor_3 := 10
-var books_left_to_shelve_floor_4 := 10
-var books_left_to_shelve_floor_5 := 10
-var books_left_to_shelve_floor_6 := 10
-var books_left_to_shelve_floor_7 := 10
-var books_left_to_shelve_floor_8 := 10
-var books_left_to_shelve_floor_9 := 10
-var books_left_to_shelve_floor_10 := 10
-var books_left_to_shelve_floor_11 := 10
-var books_left_to_shelve_floor_12 := 10
+var books_left_to_shelve := 0
 var books_shelved := 0
+var floor_done := false
+var next_floor := 1
 
 var player_health := 5
 var player_max_health := 40
@@ -75,4 +66,4 @@ enum FLOORS {
 var talking_npc_in_range = NPC.NONE;
 var enemy_in_range = ENEMY.NONE;
 var interactable_object_in_range = INTERACTABLE.NONE;
-var floor_number = FLOORS.ZEROTH
+var floor_number = FLOORS.FIRST

@@ -20,3 +20,9 @@ func _process(delta: float) -> void:
 		sprite.play("close")
 		isOpen = false
 		isClosed = true
+
+func _on_trigger_zone_2_body_entered(body: Node3D) -> void:
+	Global.interactable_object_in_range = Global.INTERACTABLE.ELEVATOR
+
+func _on_trigger_zone_2_body_exited(body: Node3D) -> void:
+	Global.interactable_object_in_range = Global.INTERACTABLE.NONE
