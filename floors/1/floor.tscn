@@ -17,3 +17,6 @@ visible = false
 visible = false
 
 [node name="HUD" parent="." instance=ExtResource("6_toqov")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)

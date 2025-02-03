@@ -4,7 +4,7 @@ extends StaticBody3D
 #	necessary for all floors
 
 var floor_generator = load("res://floors/floor.gd")
-var ceiling_walls_floor = preload("res://floors/wall_ceiling_lights.tscn")
+var ceiling_walls_floor = load("res://floors/wall_ceiling_lights.tscn")
 
 const flr_num = Global.FLOORS.FIRST
 const shlv_goal = 10

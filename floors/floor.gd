@@ -2,31 +2,31 @@
 #extends StaticBody3D
 
 # flooring
-static var rug_floor = preload("res://blender_assets/rug_floor.blend")
-static var stone_floor = preload("res://blender_assets/stone_floor.blend")
-static var wood_floor = preload("res://blender_assets/wood_floor.blend")
-static var cobble_floor = preload("res://blender_assets/cobble_floor.blend")
-static var red_carpet_floor = preload("res://blender_assets/red_carpet.blend")
-static var dirt_floor = preload("res://blender_assets/dirt_floor.blend")
-static var grass_floor = preload("res://blender_assets/grass_floor.blend")
-static var dark_floor = preload("res://blender_assets/dark_floor.blend")
-static var hospital_floor = preload("res://blender_assets/hospital_floor.blend")
+static var rug_floor = load("res://blender_assets/rug_floor.blend")
+static var stone_floor = load("res://blender_assets/stone_floor.blend")
+static var wood_floor = load("res://blender_assets/wood_floor.blend")
+static var cobble_floor = load("res://blender_assets/cobble_floor.blend")
+static var red_carpet_floor = load("res://blender_assets/red_carpet.blend")
+static var dirt_floor = load("res://blender_assets/dirt_floor.blend")
+static var grass_floor = load("res://blender_assets/grass_floor.blend")
+static var dark_floor = load("res://blender_assets/dark_floor.blend")
+static var hospital_floor = load("res://blender_assets/hospital_floor.blend")
 
 # ceiling
-static var shiny_ceiling = preload("res://blender_assets/shiny_ceiling.blend")
+static var shiny_ceiling = load("res://blender_assets/shiny_ceiling.blend")
 
 # furniture
-static var shelf_scene = preload("res://assets/models/bookshelf_3m.tscn")
-static var table_scene = preload("res://blender_assets/table.blend")
-static var computer_scene = preload("res://blender_assets/computer.blend")
-static var cart = preload("res://book_cart.tscn")
-static var elevator = preload("res://elevator_sprite.tscn")
-static var wall = preload("res://blender_assets/wall_bookshelf_back.blend")
+static var shelf_scene = load("res://assets/models/bookshelf_3m.tscn")
+static var table_scene = load("res://blender_assets/table.blend")
+static var computer_scene = load("res://blender_assets/computer.blend")
+static var cart = load("res://book_cart.tscn")
+static var elevator = load("res://elevator_sprite.tscn")
+static var wall = load("res://blender_assets/wall_bookshelf_back.blend")
 
 # playable and non-playable characters
-static var player = preload("res://base_character.tscn")
-static var dewey = preload("res://dewy_decimal.tscn")
-static var librarian = preload("res://librarian_character.tscn")
+static var player = load("res://base_character.tscn")
+static var dewey = load("res://dewy_decimal.tscn")
+static var librarian = load("res://librarian_character.tscn")
 
 # hardcoding the size of the floors to 50x50 meters,
 #	25 meters left of the origin, 25 right of the origin

@@ -23,7 +23,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("esc"):
 		game_paused = !game_paused
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if current_floor_num != Global.next_floor:
 		current_floor_num += 1
 		Global.books_shelved = 0

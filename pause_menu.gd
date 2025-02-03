@@ -15,7 +15,7 @@ func _ready() -> void:
 	hide()
 	game_manager.connect("toggle_game_pause", _on_game_manager_toggle_game_pause)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 	
 func _on_game_manager_toggle_game_pause(is_paused: bool):
