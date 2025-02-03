@@ -25,7 +25,7 @@ func _ready() -> void:
 	schwiftBar.value = Global.player_sprint_speed
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	$Panel/Control/BooksCount.text = str(Global.books_left_to_shelve)
 	# Handle Collision inside the object itself
 	

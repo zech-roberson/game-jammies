@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://hud.gd" id="1_gmkaq"]
 [ext_resource type="FontFile" uid="uid://c6o3y6bwturee" path="res://assets/fonts/EDU_AU Font/EduAUVICWANTPre-VariableFont_wght.ttf" id="1_rv4cu"]
-[ext_resource type="PackedScene" uid="uid://cw8ibgc6kuetf" path="res://brain_sprite.tscn" id="3_154ig"]
+[ext_resource type="PackedScene" uid="uid://bgjao244jowop" path="res://brain_sprite.tscn" id="3_154ig"]
 [ext_resource type="Texture2D" uid="uid://dv5rr2lbb817t" path="res://sprites/sword_sprite.png" id="4_5j6tn"]
 [ext_resource type="Texture2D" uid="uid://13y3xsmhismo" path="res://sprites/player_heart_empty.png" id="5_231cn"]
 [ext_resource type="Texture2D" uid="uid://d1dpcr0v85h58" path="res://sprites/player_heart_full.png" id="6_aoekp"]

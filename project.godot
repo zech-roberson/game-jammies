@@ -13,6 +13,7 @@ config_version=5
 config/name="game jammies"
 run/main_scene="res://start_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]
@@ -85,7 +86,7 @@ power_up={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://tutorial.dialogue", "res://first_floor.dialogue", "res://coffee_shop_first.dialogue", "res://alice_second_encounter.dialogue", "res://final_confrontation.dialogue", "res://tutorial_second_talk.dialogue", "res://floors/6/floor6_intro.dialogue", "res://floors/5/floor5_intro.dialogue", "res://floors/3/floor3_intro.dialogue", "<null>", "res://final_confrontation_kinda.dialogue", "res://floors/1/floor1_intro.dialogue", "res://floors/10/floor10_intro.dialogue", "res://floors/11/floor11_intro.dialogue", "res://floors/12/floor12_intro.dialogue", "res://floors/2/floor2_intro.dialogue", "res://floors/4/floor4_intro.dialogue", "res://floors/7/floor7_intro.dialogue", "res://floors/8/floor8_intro.dialogue", "res://floors/9/floor9_intro.dialogue", "res://floors/2/intro.dialogue", "res://floors/9/intro.dialogue", "res://floors/1/intro.dialogue", "res://floors/3/intro.dialogue", "res://floors/6/intro.dialogue", "res://floors/7/intro.dialogue", "res://floors/5/intro.dialogue", "res://floors/4/intro.dialogue", "res://floors/8/intro.dialogue", "res://floors/11/intro.dialogue", "res://floors/12/intro.dialogue", "res://floors/10/intro.dialogue", "res://floors/floor_dialogue/9.dialogue", "res://floors/floor_dialogue/1.dialogue", "res://floors/floor_dialogue/4.dialogue", "res://floors/floor_dialogue/5.dialogue", "res://floors/floor_dialogue/8.dialogue", "res://floors/floor_dialogue/6.dialogue", "res://floors/floor_dialogue/7.dialogue", "res://floors/floor_dialogue/2.dialogue", "res://floors/floor_dialogue/3.dialogue", "res://floors/floor_dialogue/10.dialogue", "res://floors/floor_dialogue/11.dialogue", "res://floors/floor_dialogue/12.dialogue")
+locale/translations_pot_files=PackedStringArray("res://tutorial.dialogue", "res://first_floor.dialogue", "res://coffee_shop_first.dialogue", "res://alice_second_encounter.dialogue", "res://final_confrontation.dialogue", "res://tutorial_second_talk.dialogue", "<null>", "res://final_confrontation_kinda.dialogue", "res://floors/floor_dialogue/9.dialogue", "res://floors/floor_dialogue/1.dialogue", "res://floors/floor_dialogue/4.dialogue", "res://floors/floor_dialogue/5.dialogue", "res://floors/floor_dialogue/8.dialogue", "res://floors/floor_dialogue/6.dialogue", "res://floors/floor_dialogue/7.dialogue", "res://floors/floor_dialogue/2.dialogue", "res://floors/floor_dialogue/3.dialogue", "res://floors/floor_dialogue/10.dialogue", "res://floors/floor_dialogue/11.dialogue", "res://floors/floor_dialogue/12.dialogue")
 
 [rendering]
 

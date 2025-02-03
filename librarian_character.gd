@@ -71,7 +71,7 @@ func _physics_process(delta: float) -> void:
 				librarian.stop()
 				
 	if librarian_attack:
-		Global.is_enemy_attacking
+#		Global.is_enemy_attacking
 		librarian.play("attack")
 	else:
 		librarian.stop()

@@ -11,7 +11,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Global.interactable_object_in_range == Global.INTERACTABLE.ELEVATOR && Global.books_shelved == 10 && isClosed:
 		sprite.play("open")
 		isOpen = true
@@ -21,8 +21,8 @@ func _process(delta: float) -> void:
 		isOpen = false
 		isClosed = true
 
-func _on_trigger_zone_2_body_entered(body: Node3D) -> void:
+func _on_trigger_zone_2_body_entered(_body: Node3D) -> void:
 	Global.interactable_object_in_range = Global.INTERACTABLE.ELEVATOR
 
-func _on_trigger_zone_2_body_exited(body: Node3D) -> void:
+func _on_trigger_zone_2_body_exited(_body: Node3D) -> void:
 	Global.interactable_object_in_range = Global.INTERACTABLE.NONE

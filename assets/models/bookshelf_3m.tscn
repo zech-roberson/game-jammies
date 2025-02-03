@@ -12,17 +12,17 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func isInteractable(): pass
 
 func isBookshelf(): pass
 
-func _on_bookshelf_body_entered(body: Node3D) -> void:
+func _on_bookshelf_body_entered(_body: Node3D) -> void:
 	Global.interactable_object_in_range = Global.INTERACTABLE.SHELF
 
-func _on_bookshelf_body_exited(body: Node3D) -> void:
+func _on_bookshelf_body_exited(_body: Node3D) -> void:
 	Global.interactable_object_in_range = Global.INTERACTABLE.NONE
 "
 
