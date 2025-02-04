@@ -1,6 +1,3 @@
-#@tool
-#extends StaticBody3D
-
 # flooring
 static var rug_floor = load("res://blender_assets/rug_floor.blend")
 static var stone_floor = load("res://blender_assets/stone_floor.blend")
@@ -36,7 +33,7 @@ static var colNum = -25
 static var floor_rot = [0, 90, 180, 270]
 static var rando = RandomNumberGenerator.new()
 
-static func load_flooring(output_array, flooring_file) -> Array:
+static func load_flooring(output_array, flooring_file):
 	var row = null
 	var floor_obj = null
 	var infile = FileAccess.open(flooring_file, FileAccess.READ)
@@ -74,12 +71,11 @@ static func load_flooring(output_array, flooring_file) -> Array:
 						"position": Vector3(colNum,-0.5,rowNum), 
 						"rot": Vector3(0,floor_rot[rando.randi_range(0,3)],0)
 					})
-					floor_obj = null
+				floor_obj = null
 				colNum += 1
 			colNum = -25
 			rowNum += 1
 		rowNum = -25
-	return output_array
 
 static func load_furniture(output_array, furniture_file):
 	var row = null
@@ -146,7 +142,7 @@ static func load_furniture(output_array, furniture_file):
 						"position": Vector3(colNum,item_placement_y,rowNum), 
 						"rot": Vector3(0,item_placement_rot,0)
 					})
-					item = null
+				item = null
 				colNum += 1
 			colNum = -25
 			rowNum += 1

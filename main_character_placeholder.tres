@@ -1,13 +1,13 @@
 [gd_resource type="SpriteFrames" load_steps=109 format=3 uid="uid://cjpo5p7akqk68"]
 
-[ext_resource type="Texture2D" uid="uid://dp24uek84escf" path="res://assets/textures/player/attack.png" id="1_fm1ix"]
-[ext_resource type="Texture2D" uid="uid://cbtr4mgb6sbn5" path="res://assets/textures/player/block.png" id="2_w8gyu"]
-[ext_resource type="Texture2D" uid="uid://dxjho8iprw7fm" path="res://assets/textures/player/dodge_left.png" id="3_orr0e"]
-[ext_resource type="Texture2D" uid="uid://cvfewsvmkmia3" path="res://sprites/player_dies.png" id="3_yjpvy"]
-[ext_resource type="Texture2D" uid="uid://bnt62hwpqp4p3" path="res://assets/textures/player/dodge_right.png" id="4_8vqo4"]
-[ext_resource type="Texture2D" uid="uid://dw6vcjiyw5jau" path="res://assets/textures/player/hurt.png" id="5_mf4q5"]
-[ext_resource type="Texture2D" uid="uid://8iooc7dxmuwp" path="res://assets/textures/player/powerup.png" id="6_16f2r"]
-[ext_resource type="Texture2D" uid="uid://da8hm74bpx31e" path="res://assets/textures/player/walking.png" id="7_ak6k6"]
+[ext_resource type="Texture2D" uid="uid://bf65pjilktg1" path="res://assets/textures/player/attack.png" id="1_fm1ix"]
+[ext_resource type="Texture2D" uid="uid://7eg6pkuf5sl0" path="res://assets/textures/player/block.png" id="2_w8gyu"]
+[ext_resource type="Texture2D" uid="uid://cmceohhtmmske" path="res://assets/textures/player/dodge_left.png" id="3_orr0e"]
+[ext_resource type="Texture2D" uid="uid://c5ebbyvaepeox" path="res://sprites/player_dies.png" id="3_yjpvy"]
+[ext_resource type="Texture2D" uid="uid://bxaw1vwamc00o" path="res://assets/textures/player/dodge_right.png" id="4_8vqo4"]
+[ext_resource type="Texture2D" uid="uid://cy0r8jqftoh2v" path="res://assets/textures/player/hurt.png" id="5_mf4q5"]
+[ext_resource type="Texture2D" uid="uid://0lusdo8nj8ih" path="res://assets/textures/player/powerup.png" id="6_16f2r"]
+[ext_resource type="Texture2D" uid="uid://coah5kxa5yaht" path="res://assets/textures/player/walking.png" id="7_ak6k6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sqi2a"]
 atlas = ExtResource("1_fm1ix")

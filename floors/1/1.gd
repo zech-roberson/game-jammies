@@ -1,4 +1,4 @@
-extends StaticBody3D
+extends Node3D
 
 # instantiate the floor_generator class
 #	necessary for all floors
@@ -21,9 +21,11 @@ func _ready() -> void:
 	Global.books_left_to_shelve = shlv_goal
 	Global.floor_done = false
 	
-	floor_generator.load_flooring(objects_array, "res://floors/1/floor.txt")
+	add_child(floor_generator.shelf_scene.instantiate())
+	
+	#floor_generator.load_flooring(objects_array, "res://floors/1/floor.txt")
 	floor_generator.load_furniture(objects_array, "res://floors/1/layout.txt")
-	floor_generator.load_ceiling(objects_array)
+	#floor_generator.load_ceiling(objects_array)
 	
 	for object in objects_array:
 		var item = object["object"].instantiate()

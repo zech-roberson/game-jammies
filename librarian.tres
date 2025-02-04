@@ -1,9 +1,9 @@
 [gd_resource type="SpriteFrames" load_steps=97 format=3 uid="uid://7t51ug32n2rn"]
 
-[ext_resource type="Texture2D" uid="uid://djwvxi3ovnnlh" path="res://sprites/librarian_attack.png" id="1_ijocv"]
-[ext_resource type="Texture2D" uid="uid://dpn80lxa52i31" path="res://sprites/good_librarian_walking.png" id="1_w8nwh"]
-[ext_resource type="Texture2D" uid="uid://b3wx4xx4o7s4k" path="res://sprites/librarian_revival.png" id="3_50m10"]
-[ext_resource type="Texture2D" uid="uid://cugm4jet33p0i" path="res://sprites/sick_librarian_walking.png" id="4_wing8"]
+[ext_resource type="Texture2D" uid="uid://ikrmqrp2mmb8" path="res://sprites/librarian_attack.png" id="1_ijocv"]
+[ext_resource type="Texture2D" uid="uid://qjmtsnqrcxjx" path="res://sprites/good_librarian_walking.png" id="1_w8nwh"]
+[ext_resource type="Texture2D" uid="uid://ccyhj5lcgllse" path="res://sprites/librarian_revival.png" id="3_50m10"]
+[ext_resource type="Texture2D" uid="uid://ba2dklr7ym5ur" path="res://sprites/sick_librarian_walking.png" id="4_wing8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y248c"]
 atlas = ExtResource("1_ijocv")

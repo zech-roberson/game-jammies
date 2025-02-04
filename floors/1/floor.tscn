@@ -5,10 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://c0b40e0mjtfw0" path="res://interaction_screen_with_bookshelf.tscn" id="4_5pc5a"]
 [ext_resource type="PackedScene" uid="uid://dgd2o4kb0fjvf" path="res://hud.tscn" id="6_toqov"]
 
-[node name="1" type="StaticBody3D"]
+[node name="1" type="Node3D"]
 script = ExtResource("1_4dud4")
 
 [node name="InteractionLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="InteractionScreen" parent="InteractionLayer" instance=ExtResource("3_fhtks")]
 visible = false
@@ -17,3 +18,12 @@ visible = false
 visible = false
 
 [node name="HUD" parent="." instance=ExtResource("6_toqov")]
+visible = false
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.918658, 1.05626)
+visible = false
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.807978, 3.98563)
+visible = false
