@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://base_character_movement.gd" id="1_og8ke"]
 [ext_resource type="SpriteFrames" uid="uid://cjpo5p7akqk68" path="res://main_character_placeholder.tres" id="2_k67ng"]
-[ext_resource type="AudioStream" uid="uid://hvaysie50vnu" path="res://assets/sounds/synth-pulse-shortened.mp3" id="3_me75g"]
-[ext_resource type="AudioStream" uid="uid://bcgml122ppt1s" path="res://assets/sounds/power-up-pulse.mp3" id="4_1eygl"]
-[ext_resource type="AudioStream" uid="uid://sgft8fq1l5im" path="res://assets/sounds/player-hurt.mp3" id="5_p2udd"]
+[ext_resource type="AudioStream" uid="uid://bjwhl6cpr1tdj" path="res://assets/sounds/synth-pulse-shortened.mp3" id="3_me75g"]
+[ext_resource type="AudioStream" uid="uid://c6lcqtakuexxq" path="res://assets/sounds/power-up-pulse.mp3" id="4_1eygl"]
+[ext_resource type="AudioStream" uid="uid://cwloxlxjjiuc7" path="res://assets/sounds/player-hurt.mp3" id="5_p2udd"]
 [ext_resource type="PackedScene" uid="uid://dgjx24mcy8s4c" path="res://scene_trigger.tscn" id="6_7spvl"]
-[ext_resource type="AudioStream" uid="uid://c12xth4bk1gue" path="res://assets/sounds/brain_attack.mp3" id="6_dkhc7"]
-[ext_resource type="AudioStream" uid="uid://d32m4cvfucsno" path="res://assets/sounds/dodge_spoken.mp3" id="7_mewxe"]
+[ext_resource type="AudioStream" uid="uid://bv07k5dc5calp" path="res://assets/sounds/brain_attack.mp3" id="6_dkhc7"]
+[ext_resource type="AudioStream" uid="uid://d02u5qvxxdqqm" path="res://assets/sounds/dodge_spoken.mp3" id="7_mewxe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b74d8"]
 size = Vector3(1.314, 1.744, 0.075)
